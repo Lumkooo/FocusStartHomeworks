@@ -30,8 +30,6 @@ class OneCarTableViewCell: UITableViewCell {
         }
         if let carNumberLabelText = carNumberLabelText {
             self.carNumberLabel.text = "Гос номер: \(carNumberLabelText)"
-        } else {
-            self.carNumberLabel.text = ""
-        }
+        } 
     }
 }
