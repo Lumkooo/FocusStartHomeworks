@@ -29,18 +29,18 @@ final class CustomTableViewCell: UITableViewCell {
     static var reuseIdentifier: String {
         return String(describing: CustomTableViewCell.self)
     }
-    let headingLabel = UILabel()
-    let myTextLabel = UILabel()
-    let timeLabel = UILabel()
 
-    var timeLabelWidth:NSLayoutConstraint?
+    private let headingLabel = UILabel()
+    private let myTextLabel = UILabel()
+    private let timeLabel = UILabel()
+    private var timeLabelWidth:NSLayoutConstraint?
 
     // MARK: - Метод для конфигурации TableViewCell извне
 
     func setupCell(heading:String, text:String, time:String) {
-        self.headingLabel.text = heading
-        self.myTextLabel.text = text
-        self.timeLabel.text = time
+        headingLabel.text = heading
+        myTextLabel.text = text
+        timeLabel.text = time
         if time.isEmpty {
             timeLabelWidth?.constant = 0
         }

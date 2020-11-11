@@ -53,7 +53,7 @@ final class DetailView: UIView {
 
     // MARK: - Views
 
-    let textLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = Constants.labelNumberOfLines
         label.textAlignment = .center
@@ -61,13 +61,13 @@ final class DetailView: UIView {
         return label
     }()
 
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let v = UIScrollView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
 
-    let viewForFirstImage: UIView = {
+    private let viewForFirstImage: UIView = {
         let containerView = UIView()
         containerView.clipsToBounds = false
         containerView.frame.size = CGSize(width: Constants.imagesSize.width,
@@ -82,7 +82,7 @@ final class DetailView: UIView {
         return containerView
     }()
 
-    let firstImageView: UIImageView = {
+    private let firstImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
@@ -90,7 +90,7 @@ final class DetailView: UIView {
         return imageView
     }()
 
-    let viewForSecondImage: UIView = {
+    private let viewForSecondImage: UIView = {
         let containerView = UIView()
         containerView.clipsToBounds = false
         containerView.frame.size = CGSize(width: Constants.imagesSize.width,
@@ -106,7 +106,7 @@ final class DetailView: UIView {
         return containerView
     }()
 
-    let secondImageView: UIImageView = {
+    private let secondImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
@@ -130,6 +130,20 @@ final class DetailView: UIView {
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Методы изменения параметров private UI элементов
+
+    func setupLabelText(withText text:String) {
+        textLabel.text = text
+    }
+
+    func changeFirstImage(image:UIImage) {
+        firstImageView.image = image
+    }
+
+    func changeSecondImage(image:UIImage) {
+        secondImageView.image = image
     }
 }
 
@@ -207,6 +221,6 @@ private extension DetailView {
         firstImageView.image = Images.init(rawValue: indexPath.row)?.image
         secondImageView.image = Images.init(rawValue: indexPath.row + 1)?.image
 
-        self.textLabel.text = labelText
+        setupLabelText(withText: labelText)
     }
 }

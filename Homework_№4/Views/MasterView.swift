@@ -17,7 +17,7 @@ final class MasterView: UIView {
 
     // MARK: - Views
 
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         var tableView = UITableView()
         return tableView
     }()
