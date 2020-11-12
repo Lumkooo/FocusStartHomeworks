@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol DetailViewProtocol {
+    func setupLabelText(withText text:String)
+    func changeFirstImage(image:UIImage)
+    func changeSecondImage(image:UIImage)
+}
+
 final class DetailView: UIView {
 
     // MARK: - Images
@@ -131,9 +137,11 @@ final class DetailView: UIView {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    // MARK: - Методы изменения параметров private UI элементов
+// MARK: - Методы изменения параметров private UI элементов
 
+extension DetailView: DetailViewProtocol {
     func setupLabelText(withText text:String) {
         textLabel.text = text
     }
