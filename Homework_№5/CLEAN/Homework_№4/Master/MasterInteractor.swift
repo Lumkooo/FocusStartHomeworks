@@ -12,20 +12,21 @@ final class MasterInteractor: PresenterToInteractorProtocol {
 
     // MARK: Properties
 
+    private let useCaseOne: MasterUseCaseOne
     weak var presenter: InteractorToPresenterProtocol?
-    var dataModel: [DataModel]?
+
+    init(useCaseOne: MasterUseCaseOne) {
+        self.useCaseOne = useCaseOne
+    }
 
     func loadDataModel() {
         print("MasterInteractor получил запрос от MasterPresenter загрузить данные( в нашем случае из локального JSON.")
-        self.dataModel = DataModel.getDataModel()
-        guard let dataModel = self.dataModel else { return }
-        self.presenter?.fetchSuccess(dataModel: dataModel)
+        let loadedDataModel = self.useCaseOne.loadDataModel()
+        self.presenter?.fetchSuccess(dataModel: loadedDataModel)
     }
 
     func retrieveDataModel(at index: Int) {
-        guard let dataModel = self.dataModel, dataModel.indices.contains(index) else {
-            return
-        }
-        self.presenter?.getOneDataModel(dataModel[index])
+        let oneDataModel = self.useCaseOne.retrieveDataModel(at: index)
+        self.presenter?.getOneDataModel(oneDataModel)
     }
 }

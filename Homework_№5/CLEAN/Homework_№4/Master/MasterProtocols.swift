@@ -22,7 +22,6 @@ protocol ViewToPresenterProtocol: class {
     var view: MasterViewPresenter? { get set }
     var interactor: PresenterToInteractorProtocol? { get set }
     var router: PresenterToRouterProtocol? { get set }
-    var dataModel: [DataModel]? { get set }
     func viewDidLoad(view:MasterViewPresenter)
     func selectCellAt(indexPath:IndexPath)
 }
