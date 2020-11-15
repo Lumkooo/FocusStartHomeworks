@@ -80,6 +80,7 @@ extension MasterView: MasterViewPresenter {
     }
 
     func setupDataModel(dataModel:[DataModel]) {
+        self.tableViewDataSource.dataArray = dataModel
         self.tableView.reloadData()
     }
 }
@@ -89,7 +90,6 @@ extension MasterView: MasterViewPresenter {
 private extension MasterView {
     func setupDelegates() {
         self.tableViewDelegate = CustomTableViewDelegate(withDelegate: self)
-        self.tableViewDataSource.dataArray = DataModel.getDataModel()
         self.tableView.dataSource = tableViewDataSource
         self.tableView.delegate = tableViewDelegate
     }
