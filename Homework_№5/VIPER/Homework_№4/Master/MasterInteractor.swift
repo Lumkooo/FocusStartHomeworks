@@ -8,7 +8,7 @@
 import Foundation
 
 
-class MasterInteractor: PresenterToInteractorProtocol {
+final class MasterInteractor: PresenterToInteractorProtocol {
 
     // MARK: Properties
 

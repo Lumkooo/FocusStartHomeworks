@@ -21,6 +21,13 @@
 		CE36DC3625527E2A00F62B67 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36DC3525527E2A00F62B67 /* MasterViewController.swift */; };
 		CE36DC3B2552871E00F62B67 /* DeviceTraitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36DC3A2552871E00F62B67 /* DeviceTraitStatus.swift */; };
 		CE36DC4D2552A60500F62B67 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36DC4C2552A60400F62B67 /* CustomTableViewCell.swift */; };
+		CE7F98B42560DCE000CF7518 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98B32560DCE000CF7518 /* MasterView.swift */; };
+		CE7F98BA2560E5B300CF7518 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98B92560E5B300CF7518 /* UIViewExtension.swift */; };
+		CE7F98BE2560E78600CF7518 /* CustomTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98BD2560E78600CF7518 /* CustomTableViewDataSource.swift */; };
+		CE7F98C22560E7A200CF7518 /* CustomTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C12560E7A200CF7518 /* CustomTableViewDelegate.swift */; };
+		CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */; };
+		CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */; };
+		CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98CB2560E97A00CF7518 /* DetailView.swift */; };
 		CEE662F2255E68CB00A51F7F /* dataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE662F1255E68CB00A51F7F /* dataModel.json */; };
 		CEE662F7255E731C00A51F7F /* MasterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE662F6255E731C00A51F7F /* MasterPresenter.swift */; };
 		CEE662FB255E732D00A51F7F /* MasterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE662FA255E732D00A51F7F /* MasterInteractor.swift */; };
@@ -45,6 +52,13 @@
 		CE36DC3525527E2A00F62B67 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CE36DC3A2552871E00F62B67 /* DeviceTraitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraitStatus.swift; sourceTree = "<group>"; };
 		CE36DC4C2552A60400F62B67 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CE7F98B32560DCE000CF7518 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
+		CE7F98B92560E5B300CF7518 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CE7F98BD2560E78600CF7518 /* CustomTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewDataSource.swift; sourceTree = "<group>"; };
+		CE7F98C12560E7A200CF7518 /* CustomTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewDelegate.swift; sourceTree = "<group>"; };
+		CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerDelegate.swift; sourceTree = "<group>"; };
+		CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTappedDelegate.swift; sourceTree = "<group>"; };
+		CE7F98CB2560E97A00CF7518 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		CEE662F1255E68CB00A51F7F /* dataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataModel.json; sourceTree = "<group>"; };
 		CEE662F6255E731C00A51F7F /* MasterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPresenter.swift; sourceTree = "<group>"; };
 		CEE662FA255E732D00A51F7F /* MasterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterInteractor.swift; sourceTree = "<group>"; };
@@ -92,11 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				CE0ED736255EB94600F8B878 /* App */,
-				CE36DC4225528D9200F62B67 /* Views */,
 				CEFBF232255E66CF00319E69 /* Master */,
 				CEFBF233255E66DC00319E69 /* Detail */,
 				CEFBF235255E66EC00319E69 /* Entities */,
 				CE36DC3D255289ED00F62B67 /* Services */,
+				CE7F98BC2560E77E00CF7518 /* Model */,
 				CE36DC1B2552718D00F62B67 /* Assets.xcassets */,
 				CE36DC1D2552718D00F62B67 /* LaunchScreen.storyboard */,
 				CE36DC202552718D00F62B67 /* Info.plist */,
@@ -108,14 +122,35 @@
 			isa = PBXGroup;
 			children = (
 				CE36DC3A2552871E00F62B67 /* DeviceTraitStatus.swift */,
+				CE7F98B92560E5B300CF7518 /* UIViewExtension.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		CE36DC4225528D9200F62B67 /* Views */ = {
+		CE7F98B62560DCE300CF7518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CE36DC4C2552A60400F62B67 /* CustomTableViewCell.swift */,
+				CE7F98B32560DCE000CF7518 /* MasterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE7F98BC2560E77E00CF7518 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE7F98BD2560E78600CF7518 /* CustomTableViewDataSource.swift */,
+				CE7F98C12560E7A200CF7518 /* CustomTableViewDelegate.swift */,
+				CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */,
+				CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE7F98CE2560E98400CF7518 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE7F98CB2560E97A00CF7518 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +158,7 @@
 		CEFBF232255E66CF00319E69 /* Master */ = {
 			isa = PBXGroup;
 			children = (
+				CE7F98B62560DCE300CF7518 /* Views */,
 				CE36DC3525527E2A00F62B67 /* MasterViewController.swift */,
 				CEE662F6255E731C00A51F7F /* MasterPresenter.swift */,
 				CEE662FA255E732D00A51F7F /* MasterInteractor.swift */,
@@ -135,6 +171,7 @@
 		CEFBF233255E66DC00319E69 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CE7F98CE2560E98400CF7518 /* Views */,
 				CE36DC162552718B00F62B67 /* DetailViewController.swift */,
 				CE0ED71C255E970A00F8B878 /* DetailRouter.swift */,
 				CE0ED71F255E972400F8B878 /* DetailInteractor.swift */,
@@ -225,16 +262,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE662FE255E733400A51F7F /* MasterRouter.swift in Sources */,
+				CE7F98C22560E7A200CF7518 /* CustomTableViewDelegate.swift in Sources */,
 				CE36DC3625527E2A00F62B67 /* MasterViewController.swift in Sources */,
+				CE7F98B42560DCE000CF7518 /* MasterView.swift in Sources */,
+				CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */,
 				CE0ED726255E973500F8B878 /* DetailPresenter.swift in Sources */,
 				CEE66301255E733E00A51F7F /* MasterProtocols.swift in Sources */,
+				CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */,
 				CE0ED720255E972400F8B878 /* DetailInteractor.swift in Sources */,
+				CE7F98BA2560E5B300CF7518 /* UIViewExtension.swift in Sources */,
 				CE0ED723255E972D00F8B878 /* DetailProtocols.swift in Sources */,
 				CE36DC3B2552871E00F62B67 /* DeviceTraitStatus.swift in Sources */,
+				CE7F98BE2560E78600CF7518 /* CustomTableViewDataSource.swift in Sources */,
 				CE36DC4D2552A60500F62B67 /* CustomTableViewCell.swift in Sources */,
 				CE0ED72E255EAA2B00F8B878 /* ImagesModel.swift in Sources */,
 				CEE662FB255E732D00A51F7F /* MasterInteractor.swift in Sources */,
 				CE36DC172552718B00F62B67 /* DetailViewController.swift in Sources */,
+				CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */,
 				CE1B010225550E3600D0CA8E /* DataModel.swift in Sources */,
 				CE36DC132552718B00F62B67 /* AppDelegate.swift in Sources */,
 				CE0ED71D255E970A00F8B878 /* DetailRouter.swift in Sources */,

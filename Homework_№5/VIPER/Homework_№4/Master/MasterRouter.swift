@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterRouter: PresenterToRouterProtocol {
+final class MasterRouter: PresenterToRouterProtocol {
 
     static func createModule() -> UISplitViewController {
         print("MasterRouter инициализирует UISplitViewController.")
@@ -26,7 +26,7 @@ class MasterRouter: PresenterToRouterProtocol {
 
         masterController.presenter = presenter
         masterController.presenter?.router = MasterRouter()
-        masterController.presenter?.view = masterController
+        masterController.presenter?.view = MasterView()
         masterController.presenter?.interactor = MasterInteractor()
         masterController.presenter?.interactor?.presenter = presenter
 
@@ -38,7 +38,7 @@ class MasterRouter: PresenterToRouterProtocol {
     func showDetailViewController(on view: MasterViewPresenter, with dataModel: DataModel) {
         print("MasterRouter начинает показ DetailViewController как DetailViewController SplitViewController-а.")
         let detailViewController = DetailRouter.createModule(with: dataModel)
-        guard let viewController = view as? MasterViewController else { fatalError("Произошла ошибка!")}
+        guard let viewController = (view  as? MasterView)?.findViewController() as? MasterViewController else { fatalError("Произошла ошибка!")}
         viewController.splitViewController?.showDetailViewController(detailViewController, sender: nil)
     }
 }

@@ -11,7 +11,8 @@ import UIKit
 // MARK: Presenter -> View
 
 protocol MasterViewPresenter: class {
-    func returnDataModel()
+    var didSelectRowAt:((IndexPath) -> Void)? { get set }
+    func setupDataModel(dataModel:[DataModel])
     func deselectRowAt(row: Int)
 }
 
@@ -22,11 +23,8 @@ protocol ViewToPresenterProtocol: class {
     var interactor: PresenterToInteractorProtocol? { get set }
     var router: PresenterToRouterProtocol? { get set }
     var dataModel: [DataModel]? { get set }
-    func viewDidLoad()
-    func numberOfRowsInSection() -> Int
-    func dataModelForCell(indexPath: IndexPath) -> DataModel?
-    func didSelectRowAt(index: Int)
-    func deselectRowAt(index: Int)
+    func viewDidLoad(view:MasterViewPresenter)
+    func selectCellAt(indexPath:IndexPath)
 }
 
 // MARK: Presenter -> Interactor

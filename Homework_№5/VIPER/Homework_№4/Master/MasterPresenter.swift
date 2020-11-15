@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MasterPresenter: ViewToPresenterProtocol {
+final class MasterPresenter: ViewToPresenterProtocol {
 
     // MARK: Properties
     weak var view: MasterViewPresenter?
@@ -17,31 +17,19 @@ class MasterPresenter: ViewToPresenterProtocol {
     var dataModel: [DataModel]?
 
     // MARK: Методы для MasterViewController
-    func viewDidLoad() {
+
+    func viewDidLoad(view:MasterViewPresenter) {
         print("MasterPresenter получил уведомление, что MasterViewController загрузился.")
-        interactor?.loadDataModel()
-    }
-
-    func numberOfRowsInSection() -> Int {
-        guard let dataModel = self.dataModel else {
-            return 0
+        self.view = view
+        self.interactor?.loadDataModel()
+        self.view?.didSelectRowAt = { [weak self] indexPath in
+            self?.selectCellAt(indexPath: indexPath)
         }
-        return dataModel.count
     }
 
-    func dataModelForCell(indexPath: IndexPath) -> DataModel? {
-        guard let dataModel = self.dataModel else {
-            return nil
-        }
-        return dataModel[indexPath.row]
-    }
-
-    func didSelectRowAt(index: Int) {
-        interactor?.retrieveDataModel(at: index)
-    }
-
-    func deselectRowAt(index: Int) {
-        view?.deselectRowAt(row: index)
+    func selectCellAt(indexPath:IndexPath) {
+        self.interactor?.retrieveDataModel(at: indexPath.row)
+        self.view?.deselectRowAt(row: indexPath.row)
     }
 }
 
@@ -52,10 +40,10 @@ extension MasterPresenter: InteractorToPresenterProtocol {
     func fetchSuccess(dataModel: [DataModel]) {
         print("MasterPresenter получил массив dataModel от MasterInteractor.")
         self.dataModel = dataModel
-        view?.returnDataModel()
+        self.view?.setupDataModel(dataModel: dataModel)
     }
 
     func getSuccess(_ dataModel: DataModel) {
-        router?.showDetailViewController(on: view!, with: dataModel)
+        self.router?.showDetailViewController(on: view!, with: dataModel)
     }
 }
