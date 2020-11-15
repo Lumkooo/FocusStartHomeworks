@@ -16,7 +16,7 @@ protocol PresenterToViewDetailProtocol: class {
 // MARK: View -> Presenter
 
 protocol ViewToPresenterDetailProtocol: class {
-    var view: PresenterToViewDetailProtocol? { get set }
+    var ui: PresenterToViewDetailProtocol? { get set }
     var interactor: PresenterToInteractorDetailProtocol? { get set }
     var router: PresenterToRouterDetailProtocol? { get set }
     func viewDidLoad(view: PresenterToViewDetailProtocol?)
@@ -26,7 +26,6 @@ protocol ViewToPresenterDetailProtocol: class {
 
 protocol PresenterToInteractorDetailProtocol: class {
     var presenter: InteractorToPresenterDetailProtocol? { get set }
-    var dataModel: DataModel? { get set }
     func getImages()
 }
 

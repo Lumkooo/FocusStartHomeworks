@@ -26,7 +26,6 @@ final class MasterView: UIView {
     private var tableViewDataSource = CustomTableViewDataSource()
     private var tableViewDelegate: CustomTableViewDelegate?
     var didSelectRowAt: ((IndexPath) -> Void)?
-    var dataModel:[DataModel] = []
     var tableViewCellTappedDelegate: TableViewCellTappedDelegate?
 
     // MARK: - Init
@@ -81,7 +80,6 @@ extension MasterView: MasterViewPresenter {
     }
 
     func setupDataModel(dataModel:[DataModel]) {
-        self.dataModel = dataModel
         self.tableView.reloadData()
     }
 }

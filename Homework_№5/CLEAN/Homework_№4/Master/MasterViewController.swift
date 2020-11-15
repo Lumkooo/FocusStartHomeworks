@@ -11,7 +11,7 @@ final class MasterViewController: UIViewController {
 
     // MARK: - Properties
 
-    let masterView = MasterView()
+    private let masterView = MasterView()
     var presenter: ViewToPresenterProtocol?
 
     // MARK: - Жизненный цикл ViewContorller-а

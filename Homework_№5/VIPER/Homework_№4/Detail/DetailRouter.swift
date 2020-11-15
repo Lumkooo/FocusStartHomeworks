@@ -17,9 +17,8 @@ final class DetailRouter: PresenterToRouterDetailProtocol {
 
         viewController.presenter = presenter
         viewController.presenter?.router = DetailRouter()
-        viewController.presenter?.view = DetailView()
-        viewController.presenter?.interactor = DetailInteractor()
-        viewController.presenter?.interactor?.dataModel = dataModel
+        viewController.presenter?.ui = DetailView()
+        viewController.presenter?.interactor = DetailInteractor(dataModel: dataModel)
         viewController.presenter?.interactor?.presenter = presenter
 
         return viewController

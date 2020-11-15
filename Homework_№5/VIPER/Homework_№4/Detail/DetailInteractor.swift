@@ -12,7 +12,11 @@ final class DetailInteractor: PresenterToInteractorDetailProtocol {
 
     // MARK: Properties
     weak var presenter: InteractorToPresenterDetailProtocol?
-    var dataModel: DataModel?
+    private var dataModel: DataModel?
+
+    init(dataModel:DataModel?) {
+        self.dataModel = dataModel
+    }
 
     func getImages() {
         print("DeatilInteractor получил запрос от DetailPresenter на получение изображений.")

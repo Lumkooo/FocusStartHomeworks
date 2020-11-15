@@ -18,7 +18,6 @@ final class DetailInteractor: PresenterToInteractorDetailProtocol {
         self.useCaseOne = useCaseOne
     }
 
-
     func getImages() {
         print("DeatilInteractor получил запрос от DetailPresenter на получение изображений.")
         let images = self.useCaseOne.getImages()

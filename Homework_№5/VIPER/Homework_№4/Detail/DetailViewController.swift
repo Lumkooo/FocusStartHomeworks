@@ -15,7 +15,7 @@ final class DetailViewController: UIViewController {
     // MARK: - Properties
     
     var presenter: ViewToPresenterDetailProtocol?
-    var detailView = DetailView()
+    private var detailView = DetailView()
 
     // MARK: - Жизненный цикл ViewContorller-а
 

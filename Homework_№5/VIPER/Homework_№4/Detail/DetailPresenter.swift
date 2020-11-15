@@ -10,13 +10,13 @@ import UIKit
 final class DetailPresenter: ViewToPresenterDetailProtocol {
 
     // MARK: Properties
-    weak var view: PresenterToViewDetailProtocol?
+    weak var ui: PresenterToViewDetailProtocol?
     var interactor: PresenterToInteractorDetailProtocol?
     var router: PresenterToRouterDetailProtocol?
 
     func viewDidLoad(view: PresenterToViewDetailProtocol?) {
         print("DetailPresenter уведомлен о том, что DeatilViewController загрузился.")
-        self.view = view
+        self.ui = view
         self.interactor?.getImages()
     }
 
@@ -25,6 +25,6 @@ final class DetailPresenter: ViewToPresenterDetailProtocol {
 extension DetailPresenter: InteractorToPresenterDetailProtocol {
     func getImages(dataModel: DataModel, images: [UIImage]) {
         print("DetailPresenter получил результат от DetailInteractor с картинками и экзмепляром DataModel.",dataModel)
-        self.view?.imageSuccess(dataModel, firstImage: images[0], secondImage: images[1])
+        self.ui?.imageSuccess(dataModel, firstImage: images[0], secondImage: images[1])
     }
 }

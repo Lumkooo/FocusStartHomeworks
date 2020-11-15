@@ -13,7 +13,7 @@ final class MasterInteractor: PresenterToInteractorProtocol {
     // MARK: Properties
 
     weak var presenter: InteractorToPresenterProtocol?
-    var dataModel: [DataModel]?
+    private var dataModel: [DataModel]?
 
     func loadDataModel() {
         print("MasterInteractor получил запрос от MasterPresenter загрузить данные( в нашем случае из локального JSON.")
