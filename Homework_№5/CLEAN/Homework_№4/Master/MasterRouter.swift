@@ -26,7 +26,6 @@ final class MasterRouter: PresenterToRouterProtocol {
 
         masterController.presenter = presenter
         masterController.presenter?.router = MasterRouter()
-        masterController.presenter?.ui = MasterView()
         masterController.presenter?.interactor = MasterInteractor(useCaseOne: MasterUseCaseOne())
         masterController.presenter?.interactor?.presenter = presenter
 

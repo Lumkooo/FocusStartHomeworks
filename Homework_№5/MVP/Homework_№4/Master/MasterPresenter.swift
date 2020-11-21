@@ -28,6 +28,8 @@ final class MasterPresenter: ViewToPresenterProtocol {
 private extension MasterPresenter {
     func loadDataModel() {
         self.dataModel = DataModel.getDataModel()
+        guard let dataModel = self.dataModel else { fatalError("Something went wrong") }
+        self.ui?.setupDataModel(dataModel: dataModel)
     }
 
     func selectCellAt(indexPath:IndexPath) {

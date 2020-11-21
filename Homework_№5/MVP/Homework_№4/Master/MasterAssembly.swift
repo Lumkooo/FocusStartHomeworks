@@ -29,9 +29,7 @@ enum MasterAssembly {
         splitViewController.viewControllers = [navMasterController, navigationDetailController]
         splitViewController.preferredDisplayMode = .oneBesideSecondary
 
-
         masterController.presenter = presenter
-        masterController.presenter.ui = MasterView()
 
         return splitViewController
 
