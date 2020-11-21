@@ -20,7 +20,6 @@
 		CE0831C72567A48C00606855 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831C62567A48C00606855 /* ButtonBuilder.swift */; };
 		CE0831D82567BB2900606855 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831D72567BB2900606855 /* SecondViewController.swift */; };
 		CE0831DC2567BB3700606855 /* SecondViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831DB2567BB3700606855 /* SecondViewControllerPresenter.swift */; };
-		CE0831DF2567BB4200606855 /* SecondViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831DE2567BB4200606855 /* SecondViewControllerInteractor.swift */; };
 		CE0831E22567BB4800606855 /* SecondViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831E12567BB4800606855 /* SecondViewControllerRouter.swift */; };
 		CE0831E72567BB6300606855 /* SecondCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831E62567BB6300606855 /* SecondCustomView.swift */; };
 		CE0831EB2567BDC600606855 /* findViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831EA2567BDC600606855 /* findViewController.swift */; };
@@ -44,7 +43,6 @@
 		CE0831C62567A48C00606855 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		CE0831D72567BB2900606855 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CE0831DB2567BB3700606855 /* SecondViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerPresenter.swift; sourceTree = "<group>"; };
-		CE0831DE2567BB4200606855 /* SecondViewControllerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerInteractor.swift; sourceTree = "<group>"; };
 		CE0831E12567BB4800606855 /* SecondViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerRouter.swift; sourceTree = "<group>"; };
 		CE0831E62567BB6300606855 /* SecondCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCustomView.swift; sourceTree = "<group>"; };
 		CE0831EA2567BDC600606855 /* findViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				CE0831E42567BB5300606855 /* Views */,
 				CE0831D72567BB2900606855 /* SecondViewController.swift */,
 				CE0831DB2567BB3700606855 /* SecondViewControllerPresenter.swift */,
-				CE0831DE2567BB4200606855 /* SecondViewControllerInteractor.swift */,
 				CE0831E12567BB4800606855 /* SecondViewControllerRouter.swift */,
 			);
 			path = SecondViewController;
@@ -250,7 +247,6 @@
 				CE083191256786AD00606855 /* AppDelegate.swift in Sources */,
 				CE0831BA25678BA900606855 /* ViewControllerInteractor.swift in Sources */,
 				CE083193256786AD00606855 /* SceneDelegate.swift in Sources */,
-				CE0831DF2567BB4200606855 /* SecondViewControllerInteractor.swift in Sources */,
 				CE0831E72567BB6300606855 /* SecondCustomView.swift in Sources */,
 				CE0831D82567BB2900606855 /* SecondViewController.swift in Sources */,
 				CE0831EB2567BDC600606855 /* findViewController.swift in Sources */,

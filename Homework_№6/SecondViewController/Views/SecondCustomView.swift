@@ -35,7 +35,6 @@ final class SecondCustomView: UIView {
     private var secondButton:UIButton?
     var didTapButton: (() -> Void)?
     var didTapSecondButton: (() -> Void)?
-    var didRecieveState: ((String) -> Void)?
 
     //MARK: - Init
 

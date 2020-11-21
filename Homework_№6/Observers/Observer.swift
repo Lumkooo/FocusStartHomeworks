@@ -14,7 +14,7 @@ protocol IObserver: class {
 
 final class Observer: IObserver {
 
-    var ui: ISecondViewControllerUI?
+    private var ui: ISecondViewControllerUI?
 
     init(forUI ui:ISecondViewControllerUI) {
         self.ui = ui
