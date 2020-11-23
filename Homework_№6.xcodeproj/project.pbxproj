@@ -25,6 +25,10 @@
 		CE0831EB2567BDC600606855 /* findViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831EA2567BDC600606855 /* findViewController.swift */; };
 		CE0831F02567C45C00606855 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831EF2567C45B00606855 /* Observer.swift */; };
 		CE0831F52567C7C600606855 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831F42567C7C600606855 /* Subject.swift */; };
+		CED59653256B6AA900A65D06 /* LabelDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED59652256B6AA900A65D06 /* LabelDirector.swift */; };
+		CED5965A256B6F3B00A65D06 /* ButtonDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED59659256B6F3B00A65D06 /* ButtonDirector.swift */; };
+		CED5965E256B77D600A65D06 /* CoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5965D256B77D600A65D06 /* CoordinatingController.swift */; };
+		CED59662256B781E00A65D06 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED59661256B781E00A65D06 /* FlowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		CE0831EA2567BDC600606855 /* findViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findViewController.swift; sourceTree = "<group>"; };
 		CE0831EF2567C45B00606855 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		CE0831F42567C7C600606855 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		CED59652256B6AA900A65D06 /* LabelDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDirector.swift; sourceTree = "<group>"; };
+		CED59659256B6F3B00A65D06 /* ButtonDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDirector.swift; sourceTree = "<group>"; };
+		CED5965D256B77D600A65D06 /* CoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatingController.swift; sourceTree = "<group>"; };
+		CED59661256B781E00A65D06 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +121,8 @@
 		CE0831CC2567A49F00606855 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
-				CE0831BC2567964600606855 /* LabelBuilder.swift */,
-				CE0831C62567A48C00606855 /* ButtonBuilder.swift */,
+				CED59655256B6AAC00A65D06 /* Label */,
+				CED59657256B6F2B00A65D06 /* Button */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -154,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				CE0831EA2567BDC600606855 /* findViewController.swift */,
+				CED5965D256B77D600A65D06 /* CoordinatingController.swift */,
+				CED59661256B781E00A65D06 /* FlowController.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +175,24 @@
 				CE0831F42567C7C600606855 /* Subject.swift */,
 			);
 			path = Observers;
+			sourceTree = "<group>";
+		};
+		CED59655256B6AAC00A65D06 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				CE0831BC2567964600606855 /* LabelBuilder.swift */,
+				CED59652256B6AA900A65D06 /* LabelDirector.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		CED59657256B6F2B00A65D06 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CE0831C62567A48C00606855 /* ButtonBuilder.swift */,
+				CED59659256B6F3B00A65D06 /* ButtonDirector.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0831B725678B9400606855 /* ViewControllerPresenter.swift in Sources */,
+				CED5965E256B77D600A65D06 /* CoordinatingController.swift in Sources */,
 				CE0831F02567C45C00606855 /* Observer.swift in Sources */,
+				CED59662256B781E00A65D06 /* FlowController.swift in Sources */,
 				CE083195256786AD00606855 /* ViewController.swift in Sources */,
 				CE0831E22567BB4800606855 /* SecondViewControllerRouter.swift in Sources */,
 				CE0831A7256786FB00606855 /* CustomView.swift in Sources */,
@@ -245,11 +275,13 @@
 				CE0831DC2567BB3700606855 /* SecondViewControllerPresenter.swift in Sources */,
 				CE0831C72567A48C00606855 /* ButtonBuilder.swift in Sources */,
 				CE083191256786AD00606855 /* AppDelegate.swift in Sources */,
+				CED59653256B6AA900A65D06 /* LabelDirector.swift in Sources */,
 				CE0831BA25678BA900606855 /* ViewControllerInteractor.swift in Sources */,
 				CE083193256786AD00606855 /* SceneDelegate.swift in Sources */,
 				CE0831E72567BB6300606855 /* SecondCustomView.swift in Sources */,
 				CE0831D82567BB2900606855 /* SecondViewController.swift in Sources */,
 				CE0831EB2567BDC600606855 /* findViewController.swift in Sources */,
+				CED5965A256B6F3B00A65D06 /* ButtonDirector.swift in Sources */,
 				CE0831F52567C7C600606855 /* Subject.swift in Sources */,
 				CE0831BD2567964600606855 /* LabelBuilder.swift in Sources */,
 			);

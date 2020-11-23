@@ -8,18 +8,9 @@
 import UIKit
 
 protocol ISecondViewControllerRouter {
-    static func createModule() -> UIViewController
+
 }
 
 final class SecondViewControllerRouter: ISecondViewControllerRouter {
 
-    static func createModule() -> UIViewController {
-
-        let presenter = SecondViewControllerPresenter()
-        let viewController = SecondViewController(presenter: presenter)
-
-        viewController.presenter = presenter
-
-        return viewController
-    }
 }

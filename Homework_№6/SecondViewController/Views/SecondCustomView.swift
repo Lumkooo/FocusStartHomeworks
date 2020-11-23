@@ -75,12 +75,9 @@ private extension SecondCustomView {
     }
 
     func setupLabel() {
-        self.firstLabel = LabelBuilder.Builder()
-            .setText(Constants.labelBasicText)
-            .setAlignment(.center)
-            .setTextColor(.black)
-            .setNumberOfLines(0)
-            .build()
+        let labelBuilder = LabelBuilder()
+        let labelDirector = LabelDirector(builder: labelBuilder)
+        self.firstLabel = labelDirector.createThirdTypeOfLabels()
 
         guard let firstLabel = firstLabel else { fatalError("Проблема с Label-ом") }
         self.addSubview(firstLabel)
@@ -94,14 +91,11 @@ private extension SecondCustomView {
     }
 
     func setupButton() {
-        self.firstButton = ButtonBuilder.Builder()
-            .setBackgroundColor(.black)
-            .setTextColor(.white)
-            .setText("Старт таймера")
-            .setShadow(color: UIColor.black.cgColor)
-            .setCornerRadius(Constants.buttonsCornerRadius)
-            .setTarget(selector: #selector(buttonTapped(gesture:)))
-            .build()
+        let buttonBuilder = ButtonBuilder()
+        let buttonDirector = ButtonDirector(builder: buttonBuilder)
+        self.firstButton = buttonDirector.createSecondTypeOfButtons()
+        self.firstButton?.addTarget(self, action: #selector(buttonTapped(gesture:)), for: .touchUpInside)
+
 
         guard let firstButton = firstButton else { fatalError("Проблема с кнопкой") }
         self.addSubview(firstButton)
@@ -116,14 +110,10 @@ private extension SecondCustomView {
     }
 
     func setupSecondButton() {
-        self.secondButton = ButtonBuilder.Builder()
-            .setBackgroundColor(.black)
-            .setTextColor(.white)
-            .setText("Остановка таймера")
-            .setShadow(color: UIColor.red.cgColor)
-            .setCornerRadius(Constants.buttonsCornerRadius)
-            .setTarget(selector: #selector(secondButtonTapped(gesture:)))
-            .build()
+        let buttonBuilder = ButtonBuilder()
+        let buttonDirector = ButtonDirector(builder: buttonBuilder)
+        self.secondButton = buttonDirector.createThirdTypeOfButtons()
+        self.secondButton?.addTarget(self, action: #selector(secondButtonTapped(gesture:)), for: .touchUpInside)
 
 
         guard let secondButton = secondButton else { fatalError("Проблема со второй кнопкой") }

@@ -25,7 +25,7 @@ final class SecondViewControllerPresenter  {
 extension SecondViewControllerPresenter : ISecondViewControllerPresenter  {
     func viewDidLoad(ui: ISecondViewControllerUI) {
         self.ui = ui
-
+        
         observer = Observer(forUI: ui)
         if observer == nil { fatalError("Something went wrong") }
         subject.subscribe(observer!)
@@ -37,13 +37,13 @@ extension SecondViewControllerPresenter : ISecondViewControllerPresenter  {
             self?.stopButtonTapped()
         }
     }
-
+    
     func buttonTapped() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.subject.state = Subject.States.randomState()
         }
     }
-
+    
     func stopButtonTapped() {
         self.timer?.invalidate()
     }

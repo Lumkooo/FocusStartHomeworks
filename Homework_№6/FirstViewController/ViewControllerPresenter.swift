@@ -28,13 +28,9 @@ extension ViewControllerPresenter : IViewControllerPresenter  {
         self.ui?.didTapButton = { [weak self] in
             self?.buttonTapped()
         }
-        self.ui?.didTapSecondButton = {
-            print("Эта кнопка не умеет ничего =)\nПросто создание элементов при помощи Builder-ов")
-        }
     }
 
     func buttonTapped() {
-        guard let ui = self.ui else { fatalError("Something went wrong")}
-        router?.showSecondViewController(on: ui)
+        router?.showSecondViewController()
     }
 }

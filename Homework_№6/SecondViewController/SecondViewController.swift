@@ -39,3 +39,8 @@ class SecondViewController: UIViewController {
         self.present(alert, animated:true)
     }
 }
+
+
+extension SecondViewController: INavigationSeed {
+    var vc: UIViewController { self }
+}

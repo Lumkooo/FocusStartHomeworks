@@ -28,3 +28,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: INavigationSeed {
+    var vc: UIViewController { self }
+}
+
+

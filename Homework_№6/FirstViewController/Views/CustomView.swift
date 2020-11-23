@@ -9,7 +9,6 @@ import UIKit
 
 protocol  IViewControllerUI {
     var didTapButton:(() -> Void)? { get set }
-    var didTapSecondButton:(() -> Void)? { get set }
 }
 
 final class CustomView: UIView {
@@ -32,7 +31,6 @@ final class CustomView: UIView {
     private var firstButton:UIButton?
     private var secondButton:UIButton?
     var didTapButton: (() -> Void)?
-    var didTapSecondButton: (() -> Void)?
 
     //MARK: - Init
 
@@ -50,10 +48,6 @@ final class CustomView: UIView {
     @objc func buttonTapped(gesture:UIGestureRecognizer) {
         self.didTapButton?()
     }
-
-    @objc func secondButtonTapped(gesture:UIGestureRecognizer) {
-        self.didTapSecondButton?()
-    }
 }
 
 // MARK: - Добавление элементов на view и установление констреинтов
@@ -63,17 +57,12 @@ private extension CustomView {
         self.setupLabel()
         self.setupSecondLabel()
         self.setupButton()
-        self.setupSecondButton()
     }
 
     func setupLabel() {
-        self.firstLabel = LabelBuilder.Builder()
-            .setText("Какой-то тескт на label-е\nСделан при помощи помощи\nLabelBuilder-а")
-            .setAlignment(.center)
-            .setTextColor(.white)
-            .setNumberOfLines(0)
-            .setBackgroundColor(.black)
-            .build()
+        let labelBuilder = LabelBuilder()
+        let labelDirector = LabelDirector(builder: labelBuilder)
+        self.firstLabel = labelDirector.createFirstTypeOfLabels()
 
         guard let firstLabel = firstLabel else { fatalError("Проблема с Label-ом") }
         self.addSubview(firstLabel)
@@ -87,10 +76,9 @@ private extension CustomView {
     }
 
     func setupSecondLabel() {
-        self.secondLabel = LabelBuilder.Builder()
-            .setText("Еще немного текста")
-            .setAlignment(.center)
-            .build()
+        let labelBuilder = LabelBuilder()
+        let labelDirector = LabelDirector(builder: labelBuilder)
+        self.secondLabel = labelDirector.createSecondTypeOfLabels()
 
         guard let secondLabel = secondLabel else { fatalError("Проблема с Label-ом") }
         self.addSubview(secondLabel)
@@ -104,14 +92,10 @@ private extension CustomView {
     }
 
     func setupButton() {
-        self.firstButton = ButtonBuilder.Builder()
-            .setBackgroundColor(.black)
-            .setTextColor(.white)
-            .setText("Переход на второй экран")
-            .setShadow(color: UIColor.black.cgColor)
-            .setCornerRadius(Constants.buttonsCornerRadius)
-            .setTarget(selector: #selector(buttonTapped(gesture:)))
-            .build()
+        let buttonBuilder = ButtonBuilder()
+        let buttonDirector = ButtonDirector(builder: buttonBuilder)
+        self.firstButton = buttonDirector.createFirstTypeOfButtons()
+        self.firstButton?.addTarget(self, action: #selector(buttonTapped(gesture:)), for: .touchUpInside)
 
         guard let firstButton = firstButton else { fatalError("Проблема с кнопкой") }
         self.addSubview(firstButton)
@@ -123,29 +107,6 @@ private extension CustomView {
         firstButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                               constant: -Constants.constraintConstant).isActive = true
         firstButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight).isActive = true
-    }
-
-    func setupSecondButton() {
-        self.secondButton = ButtonBuilder.Builder()
-            .setBackgroundColor(.black)
-            .setTextColor(.white)
-            .setText("Ничего не делающая кнопка")
-            .setShadow(color: UIColor.red.cgColor)
-            .setCornerRadius(Constants.buttonsCornerRadius)
-            .setTarget(selector: #selector(secondButtonTapped(gesture:)))
-            .build()
-
-
-        guard let secondButton = secondButton else { fatalError("Проблема со второй кнопкой") }
-        self.addSubview(secondButton)
-        secondButton.translatesAutoresizingMaskIntoConstraints = false
-        secondButton.bottomAnchor.constraint(equalTo: self.firstButton?.topAnchor ?? self.safeAreaLayoutGuide.bottomAnchor,
-                                            constant: -Constants.constraintConstant).isActive = true
-        secondButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                             constant: Constants.constraintConstant).isActive = true
-        secondButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                              constant: -Constants.constraintConstant).isActive = true
-        secondButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight).isActive = true
     }
 }
 
