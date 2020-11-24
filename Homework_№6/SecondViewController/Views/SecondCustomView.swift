@@ -15,32 +15,17 @@ protocol  ISecondViewControllerUI {
 
 final class SecondCustomView: UIView {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let buttonsCornerRadius:CGFloat = 8
-        static let shadowRadius:CGFloat = 5
-        static let shadowOpacity:Float = 1
-        static let constraintConstant:CGFloat = 16
-        static let labelsConstraintConstant:CGFloat = 4
-        static let buttonHeight:CGFloat = 40
-        static let firstButtonTappedLabelText = "Секундочку...\nСейчас изменится состояние и покажется здесь"
-        static let labelBasicText = "Label для отображения State-ов объекта"
-    }
-
     // MARK: - Properties
 
-    private var firstLabel:UILabel?
-    private var firstButton:UIButton?
-    private var secondButton:UIButton?
     var didTapButton: (() -> Void)?
     var didTapSecondButton: (() -> Void)?
+    var customView:UIView?
 
     //MARK: - Init
 
     init() {
         super.init(frame: .zero)
-        self.setupElements()
+        self.addCustomViewToView()
     }
 
     required init?(coder: NSCoder) {
@@ -55,84 +40,44 @@ final class SecondCustomView: UIView {
 
     @objc func buttonTapped(gesture:UIGestureRecognizer) {
         self.didTapButton?()
-        self.firstLabel?.text = Constants.firstButtonTappedLabelText
     }
 
     @objc func secondButtonTapped(gesture:UIGestureRecognizer) {
         self.didTapSecondButton?()
-        self.firstLabel?.text = Constants.labelBasicText
     }
 }
-
-// MARK: - Добавление элементов на view и установление констреинтов
-
-private extension SecondCustomView {
-    func setupElements() {
-        self.backgroundColor = .white
-        setupLabel()
-        setupButton()
-        setupSecondButton()
-    }
-
-    func setupLabel() {
-        let labelBuilder = LabelBuilder()
-        let labelDirector = LabelDirector(builder: labelBuilder)
-        self.firstLabel = labelDirector.createThirdTypeOfLabels()
-
-        guard let firstLabel = firstLabel else { fatalError("Проблема с Label-ом") }
-        self.addSubview(firstLabel)
-        firstLabel.translatesAutoresizingMaskIntoConstraints = false
-        firstLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                        constant: Constants.labelsConstraintConstant).isActive = true
-        firstLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                            constant: Constants.labelsConstraintConstant).isActive = true
-        firstLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                             constant: -Constants.labelsConstraintConstant).isActive = true
-    }
-
-    func setupButton() {
-        let buttonBuilder = ButtonBuilder()
-        let buttonDirector = ButtonDirector(builder: buttonBuilder)
-        self.firstButton = buttonDirector.createSecondTypeOfButtons()
-        self.firstButton?.addTarget(self, action: #selector(buttonTapped(gesture:)), for: .touchUpInside)
-
-
-        guard let firstButton = firstButton else { fatalError("Проблема с кнопкой") }
-        self.addSubview(firstButton)
-        firstButton.translatesAutoresizingMaskIntoConstraints = false
-        firstButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
-                                            constant: -Constants.constraintConstant).isActive = true
-        firstButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                             constant: Constants.constraintConstant).isActive = true
-        firstButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                              constant: -Constants.constraintConstant).isActive = true
-        firstButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight).isActive = true
-    }
-
-    func setupSecondButton() {
-        let buttonBuilder = ButtonBuilder()
-        let buttonDirector = ButtonDirector(builder: buttonBuilder)
-        self.secondButton = buttonDirector.createThirdTypeOfButtons()
-        self.secondButton?.addTarget(self, action: #selector(secondButtonTapped(gesture:)), for: .touchUpInside)
-
-
-        guard let secondButton = secondButton else { fatalError("Проблема со второй кнопкой") }
-        self.addSubview(secondButton)
-        secondButton.translatesAutoresizingMaskIntoConstraints = false
-        secondButton.bottomAnchor.constraint(equalTo: self.firstButton?.topAnchor ?? self.safeAreaLayoutGuide.bottomAnchor,
-                                            constant: -Constants.constraintConstant).isActive = true
-        secondButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                             constant: Constants.constraintConstant).isActive = true
-        secondButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                              constant: -Constants.constraintConstant).isActive = true
-        secondButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight).isActive = true
-    }
-
-}
-
 
 extension SecondCustomView: ISecondViewControllerUI {
+    // В 0 элементе массива лежит Label, если произойдет, что его там нет,
+    // то Observer будет выводить в консоль результат смены state
     func stateChanged(toState state:Subject.States) {
-        self.firstLabel?.text = "State изменен на :\n\(state)"
+        guard let firstLabel = self.customView?.subviews[0] as? UILabel else {
+            print("State changed to \n\(state)")
+            return
+        }
+        firstLabel.text = "State changed to \n\(state)"
+    }
+}
+
+// MARK: -
+
+private extension SecondCustomView {
+    func addCustomViewToView() {
+        let viewBuilder = ViewBuilder()
+        let viewDirector = ViewDirector(builder: viewBuilder)
+
+        let firstTarget = #selector(buttonTapped(gesture:))
+        let secondTarget = #selector(secondButtonTapped(gesture:))
+        self.customView = viewDirector.createSecondCustomView(firstTarget: firstTarget, secondTarget: secondTarget)
+
+        guard let customView = self.customView else { fatalError("Error") }
+        self.addSubview(customView)
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            customView.topAnchor.constraint(equalTo: self.topAnchor),
+            customView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            customView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            customView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
 }

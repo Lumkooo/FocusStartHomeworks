@@ -14,6 +14,7 @@ protocol ILabelBuilder {
     func setTextColor(_ color:UIColor)
     func setNumberOfLines(_ number:Int)
     func setTextFont(_ font:UIFont)
+    func setAccessibilityIdentifier(_ identifier:String)
     func build() -> UILabel
 }
 
@@ -46,6 +47,10 @@ extension LabelBuilder: ILabelBuilder {
 
     func setTextFont(_ font:UIFont) {
         self.myLabel.font = font
+    }
+
+    func setAccessibilityIdentifier(_ identifier:String){
+        self.myLabel.accessibilityIdentifier = identifier
     }
 
     func build() -> UILabel {

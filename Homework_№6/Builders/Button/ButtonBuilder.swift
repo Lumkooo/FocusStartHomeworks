@@ -14,6 +14,7 @@ protocol IButtonBuilder {
     func setBackgroundColor(_ color: UIColor)
     func setShadow(_ color: CGColor)
     func setCornerRadius(_ cornerRadius: CGFloat)
+    func setAction(_ target: Any?, action: Selector, for event: UIControl.Event)
     func setImage(_ image:UIImage)
     func setBackgroundImage(_ image:UIImage)
     func setTintColor(_ color:UIColor)
@@ -47,6 +48,10 @@ extension ButtonBuilder: IButtonBuilder {
 
     func setTextColor(_ color: UIColor) {
         self.myButton.setTitleColor(color, for: .normal)
+    }
+
+    func setAction(_ target: Any?, action: Selector, for event: UIControl.Event) {
+        self.myButton.addTarget(target, action: action, for: event)
     }
 
     func setBackgroundColor(_ color: UIColor) {

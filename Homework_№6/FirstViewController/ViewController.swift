@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let customView = CustomView()
     var presenter:IViewControllerPresenter
 
     init(presenter:IViewControllerPresenter) {
@@ -23,8 +22,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
-        presenter.viewDidLoad(ui: self.customView)
+
+        let viewBuilder = ViewBuilder()
+        let viewDirector = ViewDirector(builder: viewBuilder)
+        self.view = viewDirector.createFirstCustomView(firstTarget: #selector(buttonTapped(gesture:)))
+    }
+
+    @objc func buttonTapped(gesture:UIGestureRecognizer) {
+        presenter.buttonTapped()
     }
 }
 

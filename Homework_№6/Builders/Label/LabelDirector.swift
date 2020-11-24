@@ -20,6 +20,7 @@ final class LabelDirector {
         self.builder.setText("Заголовок")
         self.builder.setTextFont(.systemFont(ofSize: 26, weight: .bold))
         self.builder.setTextColor(.red)
+        self.builder.setAccessibilityIdentifier("FirstLabel")
         self.builder.setAlignment()
         return self.builder.build()
     }
@@ -36,7 +37,8 @@ final class LabelDirector {
     func createThirdTypeOfLabels() -> UILabel {
         self.builder.reset()
         self.builder.setNumberOfLines(0)
-        self.builder.setText("Label на втором экране, который\nтакже в несколько строчек и с измененным Font-ом")
+        self.builder.setText("Label на втором экране, который с измененным Font-ом\n Обсервер меняя значение выводит его print-ом")
+        self.builder.setAccessibilityIdentifier("StateLabel")
         self.builder.setTextColor(.black)
         self.builder.setTextFont(.systemFont(ofSize: 20, weight: .bold))
         self.builder.setAlignment()

@@ -12,7 +12,6 @@
 		CE083195256786AD00606855 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE083194256786AD00606855 /* ViewController.swift */; };
 		CE08319A256786AF00606855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE083199256786AF00606855 /* Assets.xcassets */; };
 		CE08319D256786AF00606855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE08319B256786AF00606855 /* LaunchScreen.storyboard */; };
-		CE0831A7256786FB00606855 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831A6256786FB00606855 /* CustomView.swift */; };
 		CE0831AD256787F300606855 /* ViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831AC256787F300606855 /* ViewControllerRouter.swift */; };
 		CE0831B725678B9400606855 /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831B625678B9400606855 /* ViewControllerPresenter.swift */; };
 		CE0831BA25678BA900606855 /* ViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831B925678BA900606855 /* ViewControllerInteractor.swift */; };
@@ -22,9 +21,10 @@
 		CE0831DC2567BB3700606855 /* SecondViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831DB2567BB3700606855 /* SecondViewControllerPresenter.swift */; };
 		CE0831E22567BB4800606855 /* SecondViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831E12567BB4800606855 /* SecondViewControllerRouter.swift */; };
 		CE0831E72567BB6300606855 /* SecondCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831E62567BB6300606855 /* SecondCustomView.swift */; };
-		CE0831EB2567BDC600606855 /* findViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831EA2567BDC600606855 /* findViewController.swift */; };
 		CE0831F02567C45C00606855 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831EF2567C45B00606855 /* Observer.swift */; };
 		CE0831F52567C7C600606855 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0831F42567C7C600606855 /* Subject.swift */; };
+		CE3ACCA4256CB967007C0A8B /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3ACCA3256CB967007C0A8B /* ViewBuilder.swift */; };
+		CE3ACCAC256CB98C007C0A8B /* ViewDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3ACCAB256CB98C007C0A8B /* ViewDirector.swift */; };
 		CED59653256B6AA900A65D06 /* LabelDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED59652256B6AA900A65D06 /* LabelDirector.swift */; };
 		CED5965A256B6F3B00A65D06 /* ButtonDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED59659256B6F3B00A65D06 /* ButtonDirector.swift */; };
 		CED5965E256B77D600A65D06 /* CoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5965D256B77D600A65D06 /* CoordinatingController.swift */; };
@@ -39,7 +39,6 @@
 		CE083199256786AF00606855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE08319C256786AF00606855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE08319E256786AF00606855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE0831A6256786FB00606855 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CE0831AC256787F300606855 /* ViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRouter.swift; sourceTree = "<group>"; };
 		CE0831B625678B9400606855 /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		CE0831B925678BA900606855 /* ViewControllerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInteractor.swift; sourceTree = "<group>"; };
@@ -49,9 +48,10 @@
 		CE0831DB2567BB3700606855 /* SecondViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerPresenter.swift; sourceTree = "<group>"; };
 		CE0831E12567BB4800606855 /* SecondViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerRouter.swift; sourceTree = "<group>"; };
 		CE0831E62567BB6300606855 /* SecondCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCustomView.swift; sourceTree = "<group>"; };
-		CE0831EA2567BDC600606855 /* findViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findViewController.swift; sourceTree = "<group>"; };
 		CE0831EF2567C45B00606855 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		CE0831F42567C7C600606855 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		CE3ACCA3256CB967007C0A8B /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		CE3ACCAB256CB98C007C0A8B /* ViewDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDirector.swift; sourceTree = "<group>"; };
 		CED59652256B6AA900A65D06 /* LabelDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDirector.swift; sourceTree = "<group>"; };
 		CED59659256B6F3B00A65D06 /* ButtonDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDirector.swift; sourceTree = "<group>"; };
 		CED5965D256B77D600A65D06 /* CoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatingController.swift; sourceTree = "<group>"; };
@@ -110,19 +110,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		CE0831AF25678A1B00606855 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CE0831A6256786FB00606855 /* CustomView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		CE0831CC2567A49F00606855 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
 				CED59655256B6AAC00A65D06 /* Label */,
 				CED59657256B6F2B00A65D06 /* Button */,
+				CE3ACCA7256CB970007C0A8B /* View */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -130,7 +123,6 @@
 		CE0831D32567BADB00606855 /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE0831AF25678A1B00606855 /* Views */,
 				CE083194256786AD00606855 /* ViewController.swift */,
 				CE0831B625678B9400606855 /* ViewControllerPresenter.swift */,
 				CE0831B925678BA900606855 /* ViewControllerInteractor.swift */,
@@ -161,7 +153,6 @@
 		CE0831E92567BDBB00606855 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE0831EA2567BDC600606855 /* findViewController.swift */,
 				CED5965D256B77D600A65D06 /* CoordinatingController.swift */,
 				CED59661256B781E00A65D06 /* FlowController.swift */,
 			);
@@ -175,6 +166,15 @@
 				CE0831F42567C7C600606855 /* Subject.swift */,
 			);
 			path = Observers;
+			sourceTree = "<group>";
+		};
+		CE3ACCA7256CB970007C0A8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE3ACCA3256CB967007C0A8B /* ViewBuilder.swift */,
+				CE3ACCAB256CB98C007C0A8B /* ViewDirector.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CED59655256B6AAC00A65D06 /* Label */ = {
@@ -264,13 +264,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3ACCA4256CB967007C0A8B /* ViewBuilder.swift in Sources */,
 				CE0831B725678B9400606855 /* ViewControllerPresenter.swift in Sources */,
 				CED5965E256B77D600A65D06 /* CoordinatingController.swift in Sources */,
 				CE0831F02567C45C00606855 /* Observer.swift in Sources */,
 				CED59662256B781E00A65D06 /* FlowController.swift in Sources */,
 				CE083195256786AD00606855 /* ViewController.swift in Sources */,
 				CE0831E22567BB4800606855 /* SecondViewControllerRouter.swift in Sources */,
-				CE0831A7256786FB00606855 /* CustomView.swift in Sources */,
 				CE0831AD256787F300606855 /* ViewControllerRouter.swift in Sources */,
 				CE0831DC2567BB3700606855 /* SecondViewControllerPresenter.swift in Sources */,
 				CE0831C72567A48C00606855 /* ButtonBuilder.swift in Sources */,
@@ -278,9 +278,9 @@
 				CED59653256B6AA900A65D06 /* LabelDirector.swift in Sources */,
 				CE0831BA25678BA900606855 /* ViewControllerInteractor.swift in Sources */,
 				CE083193256786AD00606855 /* SceneDelegate.swift in Sources */,
+				CE3ACCAC256CB98C007C0A8B /* ViewDirector.swift in Sources */,
 				CE0831E72567BB6300606855 /* SecondCustomView.swift in Sources */,
 				CE0831D82567BB2900606855 /* SecondViewController.swift in Sources */,
-				CE0831EB2567BDC600606855 /* findViewController.swift in Sources */,
 				CED5965A256B6F3B00A65D06 /* ButtonDirector.swift in Sources */,
 				CE0831F52567C7C600606855 /* Subject.swift in Sources */,
 				CE0831BD2567964600606855 /* LabelBuilder.swift in Sources */,
