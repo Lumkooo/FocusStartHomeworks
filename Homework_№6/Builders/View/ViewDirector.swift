@@ -33,11 +33,12 @@ extension ViewDirector: IViewDirector {
         let buttonDirector = ButtonDirector(builder: buttonBuilder)
         let firstButton = buttonDirector.createFirstTypeOfButtons(withTarget: target)
 
-        self.builder.setBackgroundColor(color: .white)
-        self.builder.addLabel(label: firstLabel)
-        self.builder.addLabel(label: secondLabel)
-        self.builder.addButton(button: firstButton)
-        return self.builder.build()
+        return self.builder
+            .setBackgroundColor(color: .white)
+            .addLabel(label: firstLabel)
+            .addLabel(label: secondLabel)
+            .addButton(button: firstButton)
+            .build()
     }
 
     func createSecondCustomView(firstTarget target:Selector, secondTarget: Selector) -> UIView {
@@ -50,10 +51,12 @@ extension ViewDirector: IViewDirector {
         let firstButton = buttonDirector.createSecondTypeOfButtons(withTarget: target)
         let secondButton = buttonDirector.createThirdTypeOfButtons(withTarget: secondTarget)
 
-        self.builder.setBackgroundColor(color: .white)
-        self.builder.addLabel(label: firstLabel)
-        self.builder.addButton(button: firstButton)
-        self.builder.addButton(button: secondButton)
-        return self.builder.build()
+
+        return self.builder
+            .setBackgroundColor(color: .white)
+            .addLabel(label: firstLabel)
+            .addButton(button: firstButton)
+            .addButton(button: secondButton)
+            .build()
     }
 }

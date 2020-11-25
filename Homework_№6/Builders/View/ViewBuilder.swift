@@ -8,9 +8,9 @@
 import UIKit
 
 protocol IViewBuilder {
-    func setBackgroundColor(color:UIColor)
-    func addLabel(label:UILabel)
-    func addButton(button:UIButton)
+    func setBackgroundColor(color:UIColor) -> Self
+    func addLabel(label:UILabel) -> Self
+    func addButton(button:UIButton) -> Self
 
     func build() -> UIView
 }
@@ -30,26 +30,27 @@ final class ViewBuilder {
 
     // MARK: - Properties
     private var topConstraint:NSLayoutYAxisAnchor
-    private var bottomConstraint:NSLayoutYAxisAnchor
 
     init() {
         self.topConstraint = self.myView.safeAreaLayoutGuide.topAnchor
-        self.bottomConstraint = self.myView.safeAreaLayoutGuide.bottomAnchor
     }
 }
 
 extension ViewBuilder: IViewBuilder {
 
-    func setBackgroundColor(color:UIColor) {
+    func setBackgroundColor(color:UIColor) -> Self {
         self.myView.backgroundColor = color
+        return self
     }
 
-    func addLabel(label: UILabel) {
+    func addLabel(label: UILabel) -> Self {
         self.addLabelOnView(label: label)
+        return self
     }
 
-    func addButton(button: UIButton) {
+    func addButton(button: UIButton) -> Self {
         self.addButtonOnView(button: button)
+        return self
     }
 
     func build() -> UIView {
@@ -77,12 +78,12 @@ private extension ViewBuilder {
         button.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: self.bottomConstraint, constant: -Constants.constraintConstant),
+            button.topAnchor.constraint(equalTo: self.topConstraint, constant: Constants.constraintConstant),
             button.leadingAnchor.constraint(equalTo: self.myView.leadingAnchor, constant: Constants.constraintConstant),
             button.trailingAnchor.constraint(equalTo: self.myView.trailingAnchor, constant: -Constants.constraintConstant),
             button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
 
-        self.bottomConstraint = button.topAnchor
+        self.topConstraint = button.bottomAnchor
     }
 }
