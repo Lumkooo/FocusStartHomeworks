@@ -9,12 +9,14 @@ import Foundation
 
 struct DataModel: Decodable {
     enum CodingKeys: String, CodingKey {
-        case heading, text, time
+        case heading, text, time, firstImageName, secondImageName
     }
 
     let heading:String
     let text:String
     let time:String
+    let firstImageName:String
+    let secondImageName:String
 
 }
 
