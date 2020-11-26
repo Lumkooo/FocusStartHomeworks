@@ -5,23 +5,45 @@
 //  Created by Андрей Шамин on 11/13/20.
 //
 
-import Foundation
+import UIKit
 
+protocol IDetailInteractor: class {
+    var presenter: IDetailInteractorOutput? { get set }
+    func getImages()
+}
 
-final class DetailInteractor: PresenterToInteractorDetailProtocol {
+protocol IDetailInteractorOutput: class {
+    func getImages(dataModel: DataModel, images:[UIImage])
+}
+
+final class DetailInteractor {
 
     // MARK: Properties
-    weak var presenter: InteractorToPresenterDetailProtocol?
-    private var dataModel: DataModel?
 
-    init(dataModel:DataModel?) {
-        self.dataModel = dataModel
+    weak var presenter: IDetailInteractorOutput?
+    private var dataModel: DataModel
+
+    // MARK: - Init
+
+    init() {
+        // Создал этот инициализатор для той ситуации, когда SplitViewController должен
+        // сразу показать DetailViewController и MasterViewControler
+        // Этот Init дает первый экземпляр DataModel для отображения
+        // в DetailViewController-е
+        self.dataModel = DataModel.getFirstDataModel()
     }
 
+    init(dataModel:DataModel) {
+        self.dataModel = dataModel
+    }
+}
+
+// MARK: - IDetailInteractor
+
+extension DetailInteractor: IDetailInteractor {
     func getImages() {
         print("DeatilInteractor получил запрос от DetailPresenter на получение изображений.")
-        guard let dataModel = self.dataModel else { fatalError("Что-то плошло не так") }
-        let images = ImagesModel.getImages(dataModel: dataModel)
+        let images = ImagesModel.getImages(dataModel: self.dataModel)
         self.presenter?.getImages(dataModel: dataModel, images: images)
     }
 }

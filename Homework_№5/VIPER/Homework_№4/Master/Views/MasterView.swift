@@ -7,12 +7,20 @@
 
 import UIKit
 
+
+protocol IMasterView: class {
+    var didSelectRowAt:((Int) -> Void)? { get set }
+    
+    func setupDataModel(dataModel:[DataModel])
+    func deselectRowAt(row: Int)
+}
+
 final class MasterView: UIView {
 
     // MARK: - Constants
 
     private enum Constants {
-        static let tableViewEstimatedHeight:CGFloat = 44.0
+        static let tableViewEstimatedHeight: CGFloat = 44.0
     }
 
     // MARK: - Views
@@ -25,7 +33,7 @@ final class MasterView: UIView {
     // MARK: - Properties
     private var tableViewDataSource = CustomTableViewDataSource()
     private var tableViewDelegate: CustomTableViewDelegate?
-    var didSelectRowAt: ((IndexPath) -> Void)?
+    var didSelectRowAt: ((Int) -> Void)?
     var tableViewCellTappedDelegate: TableViewCellTappedDelegate?
 
     // MARK: - Init
@@ -38,17 +46,6 @@ final class MasterView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func chooseFirstCell() {
-        if DeviceTraitStatus.current == .wRhR || DeviceTraitStatus.current == .wRhC{
-            self.selectedCell(indexPath: IndexPath(row: 0, section: 0))
-        }
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        self.chooseFirstCell()
     }
 }
 
@@ -63,7 +60,6 @@ extension MasterView {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         self.tableView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-
     }
 
     func registerTableViewCell() {
@@ -74,7 +70,7 @@ extension MasterView {
 
 // MARK: - MasterViewPresenter, Получение ответа от MasterPresenter
 
-extension MasterView: MasterViewPresenter {
+extension MasterView: IMasterView {
     func deselectRowAt(row: Int) {
         self.tableView.deselectRow(at: IndexPath(row: row, section: 0), animated: true)
     }
@@ -98,7 +94,7 @@ private extension MasterView {
 // MARK: - MasterViewControllerDelegate - Обработка тапа на ячейку
 
 extension MasterView: MasterViewControllerDelegate{
-    func selectedCell(indexPath: IndexPath) {
-        self.didSelectRowAt?(indexPath)
+    func selectedCell(index: Int) {
+        self.didSelectRowAt?(index)
     }
 }

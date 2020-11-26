@@ -17,7 +17,7 @@ final class CustomTableViewDataSource: NSObject {
 extension CustomTableViewDataSource: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataArray.count
+        self.dataArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,9 +25,9 @@ extension CustomTableViewDataSource: UITableViewDataSource{
                                                        for: indexPath) as? CustomTableViewCell
         else { assertionFailure(); return UITableViewCell()}
 
-        if indexPath.row < dataArray.count {
+        if indexPath.row < self.dataArray.count {
 
-            let object = dataArray[indexPath.row]
+            let object = self.dataArray[indexPath.row]
             cell.setupCell(heading: object.heading, text: object.text, time: object.time)
         }
         return cell

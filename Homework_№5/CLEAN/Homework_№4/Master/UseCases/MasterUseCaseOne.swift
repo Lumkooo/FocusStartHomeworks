@@ -16,6 +16,8 @@ final class MasterUseCaseOne {
     private var dataModel:[DataModel]?
 }
 
+// MARK: - IMasterUseCaseOne
+
 extension MasterUseCaseOne: IMasterUseCaseOne {
     func loadDataModel() -> [DataModel] {
         let dataModel = DataModel.getDataModel()

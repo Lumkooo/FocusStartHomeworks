@@ -9,12 +9,13 @@ import Foundation
 
 struct DataModel: Decodable {
     enum CodingKeys: String, CodingKey {
-        case heading, text,time
+        case heading, text, time
     }
 
     let heading:String
     let text:String
     let time:String
+
 }
 
 extension DataModel {
@@ -30,6 +31,10 @@ extension DataModel {
             }
         }
         return jsonData
+    }
+
+    static func getFirstDataModel() -> DataModel {
+        return DataModel.getDataModel()[0]
     }
 }
 

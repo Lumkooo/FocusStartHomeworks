@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: winScene)
 
         window?.backgroundColor = .white
-        let splitViewController = MasterAssembly.createFirstModule()
+        let splitViewController = MasterAssembly.createSplitViewController()
         splitViewController.delegate = self
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()

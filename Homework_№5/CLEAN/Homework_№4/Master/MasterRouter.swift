@@ -7,37 +7,33 @@
 
 import UIKit
 
-final class MasterRouter: PresenterToRouterProtocol {
+protocol IMasterRouter: class {
+    func showDetailViewController(on view: IMasterView, with dataModel: DataModel)
+    static func createMasterController() -> UIViewController
+    static func createDetailController() -> UIViewController
+    static func createSplitViewController() -> UISplitViewController
+}
 
-    static func createModule() -> UISplitViewController {
-        print("MasterRouter инициализирует UISplitViewController.")
+final class MasterRouter {
 
-        let masterController = MasterViewController()
-        let navMasterController = UINavigationController(rootViewController: masterController)
+}
 
-        let detailController = DetailViewController()
-        let navigationDetailController = UINavigationController(rootViewController: detailController)
+// MARK: - IMasterRouter
 
-        let splitViewController = UISplitViewController()
-        splitViewController.viewControllers = [navMasterController, navigationDetailController]
-        splitViewController.preferredDisplayMode = .oneBesideSecondary
-
-        let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = MasterPresenter()
-
-        masterController.presenter = presenter
-        masterController.presenter?.router = MasterRouter()
-        masterController.presenter?.interactor = MasterInteractor(useCaseOne: MasterUseCaseOne())
-        masterController.presenter?.interactor?.presenter = presenter
-
-        return splitViewController
+extension MasterRouter: IMasterRouter {
+    static func createMasterController() -> UIViewController {
+        MasterAssembly.createMasterController()
     }
 
-    // MARK: - Navigation
+    static func createDetailController() -> UIViewController {
+        MasterAssembly.createDetailController()
+    }
 
-    func showDetailViewController(on view: MasterViewPresenter, with dataModel: DataModel) {
-        print("MasterRouter начинает показ DetailViewController как DetailViewController SplitViewController-а.")
-        let detailViewController = DetailRouter.createModule(with: dataModel)
-        guard let viewController = (view  as? MasterView)?.findViewController() as? MasterViewController else { fatalError("Произошла ошибка!")}
-        viewController.splitViewController?.showDetailViewController(detailViewController, sender: nil)
+    static func createSplitViewController() -> UISplitViewController {
+        MasterAssembly.createSplitViewController()
+    }
+
+    func showDetailViewController(on view: IMasterView, with dataModel: DataModel) {
+        MasterAssembly.showDetailViewController(on: view, with: dataModel)
     }
 }

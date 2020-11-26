@@ -7,20 +7,18 @@
 
 import UIKit
 
-final class DetailRouter: PresenterToRouterDetailProtocol {
+protocol IDetailRouter: class {
+    static func createModule(with dataModel: DataModel) -> UIViewController
+}
 
+final class DetailRouter {
+
+}
+
+// MARK: - IDetailRouter
+
+extension DetailRouter: IDetailRouter {
     static func createModule(with dataModel: DataModel) -> UIViewController {
-        print("DetailRouter создает DetailViewController.")
-        let viewController = DetailViewController()
-
-        let presenter: ViewToPresenterDetailProtocol & InteractorToPresenterDetailProtocol = DetailPresenter()
-
-        viewController.presenter = presenter
-        viewController.presenter?.router = DetailRouter()
-        viewController.presenter?.ui = DetailView()
-        viewController.presenter?.interactor = DetailInteractor(useCaseOne: DetailUseCaseOne(dataModel: dataModel))
-        viewController.presenter?.interactor?.presenter = presenter
-
-        return viewController
+        DetailAssembly.createModule(with: dataModel)
     }
 }

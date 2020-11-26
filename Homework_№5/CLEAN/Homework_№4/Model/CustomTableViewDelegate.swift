@@ -29,7 +29,7 @@ final class CustomTableViewDelegate: NSObject {
 extension CustomTableViewDelegate: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectedCell(indexPath: indexPath)
+        delegate?.selectedCell(index: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

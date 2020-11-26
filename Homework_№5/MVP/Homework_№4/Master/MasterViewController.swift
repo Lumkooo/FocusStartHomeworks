@@ -12,11 +12,11 @@ final class MasterViewController: UIViewController {
     // MARK: - Properties
 
     let masterView = MasterView()
-    var presenter: ViewToPresenterProtocol
+    var presenter: IMasterPresenter
 
     // MARK: - Init
 
-    init(presenter: ViewToPresenterProtocol) {
+    init(presenter: IMasterPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

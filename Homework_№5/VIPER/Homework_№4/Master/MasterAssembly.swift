@@ -1,22 +1,25 @@
 //
 //  MasterAssembly.swift
-//  Homework_№5_MVP
+//  Homework_№5_VIPER
 //
-//  Created by Андрей Шамин on 11/15/20.
+//  Created by Андрей Шамин on 11/26/20.
 //
 
 import UIKit
 
 enum MasterAssembly {
-
     static func createMasterController() -> UIViewController {
-        let presenter = MasterPresenter()
+        let interactor = MasterInteractor()
+        let router = MasterRouter()
+        let presenter = MasterPresenter(interactor: interactor, router: router)
         let masterController = MasterViewController(presenter: presenter)
         return masterController
     }
 
     static func createDetailController() -> UIViewController {
-        let presenter = DetailPresenter()
+        let interactor = DetailInteractor()
+        let router = DetailRouter()
+        let presenter = DetailPresenter(interactor: interactor, router: router)
         let viewController = DetailViewController(presenter: presenter)
         return viewController
     }
@@ -36,11 +39,10 @@ enum MasterAssembly {
     }
 
     static func showDetailViewController(on view: IMasterView, with dataModel: DataModel) {
-        let detailViewController = DetailAssembly.createModule(with: dataModel)
+        let detailViewController = DetailRouter.createModule(with: dataModel)
         guard let viewController = (view  as? MasterView)?.findViewController() else {
             fatalError("Произошла ошибка!")
         }
         viewController.splitViewController?.showDetailViewController(detailViewController, sender: nil)
     }
-
 }

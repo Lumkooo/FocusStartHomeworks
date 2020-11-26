@@ -23,17 +23,27 @@ final class DetailUseCaseOne {
     init(dataModel:DataModel?) {
         self.dataModel = dataModel
     }
+
+    init() {
+        self.dataModel = DataModel.getFirstDataModel()
+    }
 }
+
+// MARK: - IDetailUseCaseOne
 
 extension DetailUseCaseOne: IDetailUseCaseOne {
     func getImages() -> [UIImage] {
-        guard let dataModel = self.dataModel else { fatalError(Constants.error) }
+        guard let dataModel = self.dataModel else {
+            fatalError(Constants.error)
+        }
         let images = ImagesModel.getImages(dataModel: dataModel)
         return images
     }
 
     func getDataModel() -> DataModel {
-        guard let dataModel = self.dataModel else { fatalError(Constants.error) }
+        guard let dataModel = self.dataModel else {
+            fatalError(Constants.error)
+        }
         return dataModel
     }
 }

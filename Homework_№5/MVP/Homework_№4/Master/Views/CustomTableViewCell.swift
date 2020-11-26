@@ -19,9 +19,9 @@ final class CustomTableViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
-        static let notEmptyTimeLabelWidth:CGFloat = 60
-        static let headingLeadingAnchor:CGFloat = 16
-        static let anchorConstant:CGFloat = 8
+        static let notEmptyTimeLabelWidth: CGFloat = 60
+        static let headingLeadingAnchor: CGFloat = 16
+        static let anchorConstant: CGFloat = 8
         static let labelsNumberOfLines = 0
     }
 

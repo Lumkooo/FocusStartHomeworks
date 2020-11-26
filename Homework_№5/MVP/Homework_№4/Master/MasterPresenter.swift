@@ -7,20 +7,25 @@
 
 import UIKit
 
-final class MasterPresenter: ViewToPresenterProtocol {
+protocol IMasterPresenter: class {
+    var ui: IMasterView? { get set }
+
+    func viewDidLoad(view:IMasterView)
+}
+
+final class MasterPresenter: IMasterPresenter {
 
     // MARK: Properties
     
     private var dataModel: [DataModel]?
-    weak var ui: MasterViewPresenter?
+    var ui: IMasterView?
 
     // MARK: Методы для MasterViewController
-
-    func viewDidLoad(view:MasterViewPresenter) {
+    func viewDidLoad(view: IMasterView) {
         self.ui = view
         self.loadDataModel()
-        self.ui?.didSelectRowAt = { [weak self] indexPath in
-            self?.selectCellAt(indexPath: indexPath)
+        self.ui?.didSelectRowAt = { [weak self] index in
+            self?.selectCellAt(index: index)
         }
     }
 }
@@ -28,13 +33,15 @@ final class MasterPresenter: ViewToPresenterProtocol {
 private extension MasterPresenter {
     func loadDataModel() {
         self.dataModel = DataModel.getDataModel()
-        guard let dataModel = self.dataModel else { fatalError("Something went wrong") }
+        guard let dataModel = self.dataModel else {
+            fatalError("Something went wrong")
+        }
         self.ui?.setupDataModel(dataModel: dataModel)
     }
 
-    func selectCellAt(indexPath:IndexPath) {
-        self.retrieveDataModel(at: indexPath.row)
-        self.ui?.deselectRowAt(row: indexPath.row)
+    func selectCellAt(index:Int) {
+        self.retrieveDataModel(at: index)
+        self.ui?.deselectRowAt(row: index)
     }
 
     func retrieveDataModel(at index: Int) {
@@ -48,9 +55,7 @@ private extension MasterPresenter {
         self.showDetailViewController(on: ui!, with: dataModel)
     }
 
-    func showDetailViewController(on view: MasterViewPresenter, with dataModel: DataModel) {
-        let detailViewController = MasterAssembly.createSecondModule(with: dataModel)
-        guard let viewController = (view  as? MasterView)?.findViewController() as? MasterViewController else { fatalError("Произошла ошибка!")}
-        viewController.splitViewController?.showDetailViewController(detailViewController, sender: nil)
+    func showDetailViewController(on view: IMasterView, with dataModel: DataModel) {
+        MasterAssembly.showDetailViewController(on: view, with: dataModel)
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0ED723255E972D00F8B878 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ED722255E972D00F8B878 /* DetailProtocols.swift */; };
 		CE0ED726255E973500F8B878 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ED725255E973500F8B878 /* DetailPresenter.swift */; };
 		CE0ED72E255EAA2B00F8B878 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ED72D255EAA2B00F8B878 /* ImagesModel.swift */; };
 		CE1B010225550E3600D0CA8E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B010125550E3600D0CA8E /* DataModel.swift */; };
@@ -27,13 +26,12 @@
 		CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */; };
 		CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */; };
 		CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98CB2560E97A00CF7518 /* DetailView.swift */; };
+		CE888D2D256F933B00BF511B /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE888D2C256F933A00BF511B /* DetailAssembly.swift */; };
 		CEE662F2255E68CB00A51F7F /* dataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE662F1255E68CB00A51F7F /* dataModel.json */; };
 		CEE662F7255E731C00A51F7F /* MasterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE662F6255E731C00A51F7F /* MasterPresenter.swift */; };
-		CEE66301255E733E00A51F7F /* MasterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE66300255E733E00A51F7F /* MasterProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE0ED722255E972D00F8B878 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
 		CE0ED725255E973500F8B878 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		CE0ED72D255EAA2B00F8B878 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
 		CE1B010125550E3600D0CA8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -55,9 +53,9 @@
 		CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTappedDelegate.swift; sourceTree = "<group>"; };
 		CE7F98CB2560E97A00CF7518 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CE888D2C256F933A00BF511B /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
 		CEE662F1255E68CB00A51F7F /* dataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataModel.json; sourceTree = "<group>"; };
 		CEE662F6255E731C00A51F7F /* MasterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPresenter.swift; sourceTree = "<group>"; };
-		CEE66300255E733E00A51F7F /* MasterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,6 @@
 				CE7F98B62560DCE300CF7518 /* Views */,
 				CE36DC3525527E2A00F62B67 /* MasterViewController.swift */,
 				CEE662F6255E731C00A51F7F /* MasterPresenter.swift */,
-				CEE66300255E733E00A51F7F /* MasterProtocols.swift */,
 				CE57135B25610270008E51AF /* MasterAssembly.swift */,
 			);
 			path = Master;
@@ -167,7 +164,7 @@
 				CE7F98CE2560E98400CF7518 /* Views */,
 				CE36DC162552718B00F62B67 /* DetailViewController.swift */,
 				CE0ED725255E973500F8B878 /* DetailPresenter.swift */,
-				CE0ED722255E972D00F8B878 /* DetailProtocols.swift */,
+				CE888D2C256F933A00BF511B /* DetailAssembly.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -256,12 +253,11 @@
 				CE36DC3625527E2A00F62B67 /* MasterViewController.swift in Sources */,
 				CE7F98B42560DCE000CF7518 /* MasterView.swift in Sources */,
 				CE57135C25610270008E51AF /* MasterAssembly.swift in Sources */,
+				CE888D2D256F933B00BF511B /* DetailAssembly.swift in Sources */,
 				CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */,
 				CE0ED726255E973500F8B878 /* DetailPresenter.swift in Sources */,
-				CEE66301255E733E00A51F7F /* MasterProtocols.swift in Sources */,
 				CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */,
 				CE7F98BA2560E5B300CF7518 /* UIViewExtension.swift in Sources */,
-				CE0ED723255E972D00F8B878 /* DetailProtocols.swift in Sources */,
 				CE36DC3B2552871E00F62B67 /* DeviceTraitStatus.swift in Sources */,
 				CE7F98BE2560E78600CF7518 /* CustomTableViewDataSource.swift in Sources */,
 				CE36DC4D2552A60500F62B67 /* CustomTableViewCell.swift in Sources */,

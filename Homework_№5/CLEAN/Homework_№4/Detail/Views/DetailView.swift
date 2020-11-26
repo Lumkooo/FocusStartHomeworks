@@ -7,45 +7,23 @@
 
 import UIKit
 
+
+protocol IDetailView: class {
+    func imageSuccess(_ dataModel: DataModel, firstImage: UIImage, secondImage: UIImage)
+}
+
 final class DetailView: UIView {
 
-    // MARK: - Images
-
-    private enum Images: Int {
-        case firstImage = 0
-        case secondImage = 1
-        case thirdImage = 2
-        case fourthImage = 3
-        case fifthImage = 4
-        case sixthImage = 5
-
-        var image: UIImage {
-            switch self {
-            case  .firstImage:
-                return UIImage(named: "firstImage") ?? UIImage()
-            case  .secondImage:
-                return UIImage(named: "secondImage") ?? UIImage()
-            case  .thirdImage:
-                return UIImage(named: "thirdImage") ?? UIImage()
-            case  .fourthImage:
-                return UIImage(named: "fourthImage") ?? UIImage()
-            case  .fifthImage:
-                return UIImage(named: "fifthImage") ?? UIImage()
-            case  .sixthImage:
-                return UIImage(named: "sixthImage") ?? UIImage()
-            }
-        }
-    }
     // MARK: - Constants
 
     private enum Constants {
-        static let anchorConstant:CGFloat = 16
-        static let imagesAnchorConstant:CGFloat = 32
+        static let anchorConstant: CGFloat = 16
+        static let imagesAnchorConstant: CGFloat = 32
         static let imagesSize = CGSize(width: 250, height: 250)
-        static let cornerRadius:CGFloat = 15
-        static let shadowRadius:CGFloat = 10
-        static let shadowOpacity:Float = 1
-        static let textWidthMultiplier:CGFloat = 0.85
+        static let cornerRadius: CGFloat = 15
+        static let shadowRadius: CGFloat = 10
+        static let shadowOpacity: Float = 1
+        static let textWidthMultiplier: CGFloat = 0.85
         static let labelNumberOfLines = 0
     }
 
@@ -93,7 +71,6 @@ final class DetailView: UIView {
         containerView.clipsToBounds = false
         containerView.frame.size = CGSize(width: Constants.imagesSize.width,
                                           height: Constants.imagesSize.height)
-
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOpacity = Constants.shadowOpacity
         containerView.layer.shadowOffset = CGSize.zero
@@ -117,12 +94,7 @@ final class DetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
-        setupElements()
-    }
-
-    init(frame: CGRect,labelText:String, withTableViewIndexPath indexPath:IndexPath) {
-        super.init(frame: frame)
-        setupElements(forIndexPath: indexPath)
+        self.setupElements()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -132,11 +104,11 @@ final class DetailView: UIView {
 
 // MARK: - Методы изменения параметров private UI элементов
 
-extension DetailView: PresenterToViewDetailProtocol {
+extension DetailView: IDetailView {
     func imageSuccess(_ dataModel: DataModel, firstImage: UIImage, secondImage: UIImage) {
-        textLabel.text = dataModel.text
-        firstImageView.image = firstImage
-        secondImageView.image = secondImage
+        self.textLabel.text = dataModel.text
+        self.firstImageView.image = firstImage
+        self.secondImageView.image = secondImage
     }
 }
 
@@ -146,63 +118,63 @@ private extension DetailView {
     func setupElements(forIndexPath indexPath: IndexPath = IndexPath(row: 0, section: 0)) {
         self.backgroundColor = .white
         self.addSubview(scrollView)
-        setupScrollView()
-        setupLabelConstraints()
-        setupFirstImageConstraints()
-        setupSecondImageConstraints()
+        self.setupScrollView()
+        self.setupLabelConstraints()
+        self.setupFirstImageConstraints()
+        self.setupSecondImageConstraints()
     }
 
     func setupLabelConstraints() {
-        scrollView.addSubview(textLabel)
+        self.scrollView.addSubview(self.textLabel)
         NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.anchorConstant),
-            textLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: Constants.textWidthMultiplier),
-            textLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Constants.anchorConstant),
-            textLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -Constants.anchorConstant),
+            self.textLabel.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: Constants.anchorConstant),
+            self.textLabel.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: Constants.textWidthMultiplier),
+            self.textLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: Constants.anchorConstant),
+            self.textLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: -Constants.anchorConstant),
         ])
     }
 
     func setupFirstImageConstraints() {
-        scrollView.addSubview(viewForFirstImage)
+        self.scrollView.addSubview(self.viewForFirstImage)
         NSLayoutConstraint.activate([
-            viewForFirstImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            viewForFirstImage.widthAnchor.constraint(equalToConstant: Constants.imagesSize.width),
-            viewForFirstImage.heightAnchor.constraint(equalToConstant: Constants.imagesSize.height),
-            viewForFirstImage.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: Constants.anchorConstant),
+            self.viewForFirstImage.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            self.viewForFirstImage.widthAnchor.constraint(equalToConstant: Constants.imagesSize.width),
+            self.viewForFirstImage.heightAnchor.constraint(equalToConstant: Constants.imagesSize.height),
+            self.viewForFirstImage.topAnchor.constraint(equalTo: self.textLabel.bottomAnchor, constant: Constants.anchorConstant),
         ])
-        viewForFirstImage.addSubview(firstImageView)
+        self.viewForFirstImage.addSubview(self.firstImageView)
         NSLayoutConstraint.activate([
-            firstImageView.leadingAnchor.constraint(equalTo: viewForFirstImage.leadingAnchor),
-            firstImageView.topAnchor.constraint(equalTo: viewForFirstImage.topAnchor),
-            firstImageView.trailingAnchor.constraint(equalTo: viewForFirstImage.trailingAnchor),
-            firstImageView.bottomAnchor.constraint(equalTo: viewForFirstImage.bottomAnchor)
+            self.firstImageView.leadingAnchor.constraint(equalTo: self.viewForFirstImage.leadingAnchor),
+            self.firstImageView.topAnchor.constraint(equalTo: self.viewForFirstImage.topAnchor),
+            self.firstImageView.trailingAnchor.constraint(equalTo: self.viewForFirstImage.trailingAnchor),
+            self.firstImageView.bottomAnchor.constraint(equalTo: self.viewForFirstImage.bottomAnchor)
         ])
     }
 
     func setupSecondImageConstraints() {
-        scrollView.addSubview(viewForSecondImage)
+        self.scrollView.addSubview(self.viewForSecondImage)
         NSLayoutConstraint.activate([
-            viewForSecondImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            viewForSecondImage.widthAnchor.constraint(equalToConstant: Constants.imagesSize.width),
-            viewForSecondImage.heightAnchor.constraint(equalToConstant: Constants.imagesSize.height),
-            viewForSecondImage.topAnchor.constraint(equalTo: viewForFirstImage.bottomAnchor, constant: Constants.imagesAnchorConstant),
-            viewForSecondImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -Constants.imagesAnchorConstant),
+            self.viewForSecondImage.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor),
+            self.viewForSecondImage.widthAnchor.constraint(equalToConstant: Constants.imagesSize.width),
+            self.viewForSecondImage.heightAnchor.constraint(equalToConstant: Constants.imagesSize.height),
+            self.viewForSecondImage.topAnchor.constraint(equalTo: self.viewForFirstImage.bottomAnchor, constant: Constants.imagesAnchorConstant),
+            self.viewForSecondImage.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -Constants.imagesAnchorConstant),
         ])
-        viewForSecondImage.addSubview(secondImageView)
+        self.viewForSecondImage.addSubview(self.secondImageView)
         NSLayoutConstraint.activate([
-            secondImageView.leadingAnchor.constraint(equalTo: viewForSecondImage.leadingAnchor),
-            secondImageView.topAnchor.constraint(equalTo: viewForSecondImage.topAnchor),
-            secondImageView.trailingAnchor.constraint(equalTo: viewForSecondImage.trailingAnchor),
-            secondImageView.bottomAnchor.constraint(equalTo: viewForSecondImage.bottomAnchor)
+            self.secondImageView.leadingAnchor.constraint(equalTo: self.viewForSecondImage.leadingAnchor),
+            self.secondImageView.topAnchor.constraint(equalTo: self.viewForSecondImage.topAnchor),
+            self.secondImageView.trailingAnchor.constraint(equalTo: self.viewForSecondImage.trailingAnchor),
+            self.secondImageView.bottomAnchor.constraint(equalTo: self.viewForSecondImage.bottomAnchor)
         ])
     }
 
     func setupScrollView() {
         NSLayoutConstraint.activate([
-            scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.anchorConstant),
-            scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            self.scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            self.scrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.anchorConstant),
+            self.scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

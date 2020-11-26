@@ -7,45 +7,22 @@
 
 import UIKit
 
+protocol IDetailView: class {
+    func imageSuccess(_ dataModel: DataModel, firstImage: UIImage, secondImage: UIImage)
+}
+
 final class DetailView: UIView {
 
-    // MARK: - Images
-
-    private enum Images: Int {
-        case firstImage = 0
-        case secondImage = 1
-        case thirdImage = 2
-        case fourthImage = 3
-        case fifthImage = 4
-        case sixthImage = 5
-
-        var image: UIImage {
-            switch self {
-            case  .firstImage:
-                return UIImage(named: "firstImage") ?? UIImage()
-            case  .secondImage:
-                return UIImage(named: "secondImage") ?? UIImage()
-            case  .thirdImage:
-                return UIImage(named: "thirdImage") ?? UIImage()
-            case  .fourthImage:
-                return UIImage(named: "fourthImage") ?? UIImage()
-            case  .fifthImage:
-                return UIImage(named: "fifthImage") ?? UIImage()
-            case  .sixthImage:
-                return UIImage(named: "sixthImage") ?? UIImage()
-            }
-        }
-    }
     // MARK: - Constants
 
     private enum Constants {
-        static let anchorConstant:CGFloat = 16
-        static let imagesAnchorConstant:CGFloat = 32
+        static let anchorConstant: CGFloat = 16
+        static let imagesAnchorConstant: CGFloat = 32
         static let imagesSize = CGSize(width: 250, height: 250)
-        static let cornerRadius:CGFloat = 15
-        static let shadowRadius:CGFloat = 10
-        static let shadowOpacity:Float = 1
-        static let textWidthMultiplier:CGFloat = 0.85
+        static let cornerRadius: CGFloat = 15
+        static let shadowRadius: CGFloat = 10
+        static let shadowOpacity: Float = 1
+        static let textWidthMultiplier: CGFloat = 0.85
         static let labelNumberOfLines = 0
     }
 
@@ -120,11 +97,6 @@ final class DetailView: UIView {
         self.setupElements()
     }
 
-    init(frame: CGRect,labelText:String, withTableViewIndexPath indexPath:IndexPath) {
-        super.init(frame: frame)
-        self.setupElements(forIndexPath: indexPath)
-    }
-
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -132,7 +104,7 @@ final class DetailView: UIView {
 
 // MARK: - Методы изменения параметров private UI элементов
 
-extension DetailView: PresenterToViewDetailProtocol {
+extension DetailView: IDetailView {
     func imageSuccess(_ dataModel: DataModel, firstImage: UIImage, secondImage: UIImage) {
         self.textLabel.text = dataModel.text
         self.firstImageView.image = firstImage

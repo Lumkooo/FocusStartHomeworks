@@ -8,5 +8,5 @@
 import UIKit
 
 protocol MasterViewControllerDelegate: class {
-    func selectedCell(indexPath: IndexPath)
+    func selectedCell(index: Int)
 }
