@@ -8,8 +8,6 @@
 import Foundation
 
 protocol IMasterInteractor: class {
-    var presenter: IMasterInteractorOutput? { get set }
-    
     func loadDataModel()
     func retrieveDataModel(at index: Int)
 }

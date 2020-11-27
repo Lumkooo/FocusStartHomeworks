@@ -14,6 +14,8 @@ enum MasterAssembly {
         let router = MasterRouter()
         let presenter = MasterPresenter(interactor: interactor, router: router)
         let masterController = MasterViewController(presenter: presenter)
+        interactor.presenter = presenter
+        router.vc = masterController
         return masterController
     }
 }

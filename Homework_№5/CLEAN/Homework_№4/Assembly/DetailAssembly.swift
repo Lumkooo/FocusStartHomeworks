@@ -15,6 +15,7 @@ enum DetailAssembly {
         let interactor = DetailInteractor(useCaseOne: useCaseOne)
         let router = DetailRouter()
         let presenter = DetailPresenter(interactor: interactor, router: router)
+        interactor.presenter = presenter
         let viewController = DetailViewController(presenter: presenter)
 
         return viewController
@@ -25,6 +26,7 @@ enum DetailAssembly {
         let router = DetailRouter()
         let presenter = DetailPresenter(interactor: interactor, router: router)
         let viewController = DetailViewController(presenter: presenter)
+        interactor.presenter = presenter
         return viewController
     }
 }

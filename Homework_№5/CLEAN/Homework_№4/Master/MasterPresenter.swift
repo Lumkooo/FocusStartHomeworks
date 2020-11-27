@@ -31,7 +31,6 @@ extension MasterPresenter: IMasterPresenter {
 
     func viewDidLoad(view: IMasterView) {
         print("MasterPresenter получил уведомление, что MasterViewController загрузился.")
-        self.interactor.presenter = self
         self.ui = view
         self.interactor.loadDataModel()
         self.ui?.didSelectRowAt = { [weak self] index in

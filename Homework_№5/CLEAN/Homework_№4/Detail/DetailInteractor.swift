@@ -9,7 +9,6 @@ import UIKit
 
 
 protocol IDetailInteractor: class {
-    var presenter: IDetailInteractorOutput? { get set }
     func getImages()
 }
 

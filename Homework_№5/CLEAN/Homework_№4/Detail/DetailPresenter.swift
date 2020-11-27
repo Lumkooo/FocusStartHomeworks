@@ -32,7 +32,6 @@ final class DetailPresenter {
 extension DetailPresenter: IDetailPresenter {
     func viewDidLoad(view: IDetailView?) {
         print("DetailPresenter уведомлен о том, что DeatilViewController загрузился.")
-        self.interactor.presenter = self
         self.ui = view
         self.interactor.getImages()
     }
