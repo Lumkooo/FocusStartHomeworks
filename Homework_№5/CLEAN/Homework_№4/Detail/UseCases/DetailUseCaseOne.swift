@@ -20,7 +20,7 @@ final class DetailUseCaseOne {
 
     private var dataModel:DataModel?
 
-    init(dataModel:DataModel?) {
+    init(dataModel: DataModel?) {
         self.dataModel = dataModel
     }
 

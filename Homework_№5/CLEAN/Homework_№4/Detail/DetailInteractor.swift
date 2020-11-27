@@ -8,24 +8,6 @@
 import UIKit
 
 
-//final class DetailInteractor: PresenterToInteractorDetailProtocol {
-//
-//    // MARK: Properties
-//    private let useCaseOne: DetailUseCaseOne
-//    weak var presenter: InteractorToPresenterDetailProtocol?
-//
-//    init(useCaseOne: DetailUseCaseOne) {
-//        self.useCaseOne = useCaseOne
-//    }
-//
-//    func getImages() {
-//        print("DeatilInteractor получил запрос от DetailPresenter на получение изображений.")
-//        let images = self.useCaseOne.getImages()
-//        let dataModel = self.useCaseOne.getDataModel()
-//        self.presenter?.getImages(dataModel: dataModel, images: images)
-//    }
-//}
-
 protocol IDetailInteractor: class {
     var presenter: IDetailInteractorOutput? { get set }
     func getImages()

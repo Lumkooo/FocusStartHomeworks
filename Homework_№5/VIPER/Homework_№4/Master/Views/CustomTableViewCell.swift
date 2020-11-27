@@ -37,7 +37,7 @@ final class CustomTableViewCell: UITableViewCell {
 
     // MARK: - Метод для конфигурации TableViewCell извне
 
-    func setupCell(heading:String, text:String, time:String) {
+    func setupCell(heading: String, text: String, time: String) {
         self.headingLabel.text = heading
         self.myTextLabel.text = text
         self.timeLabel.text = time

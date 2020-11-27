@@ -8,8 +8,6 @@
 import UIKit
 
 protocol IDetailPresenter: class {
-    var ui: IDetailView? { get set }
-
     func viewDidLoad(view: IDetailView?)
 }
 
@@ -23,7 +21,7 @@ final class DetailPresenter {
 
     // MARK: - Init
 
-    init(interactor:IDetailInteractor, router:IDetailRouter) {
+    init(interactor: IDetailInteractor, router: IDetailRouter) {
         self.interactor = interactor
         self.router = router
     }

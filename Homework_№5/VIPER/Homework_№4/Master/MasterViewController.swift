@@ -16,7 +16,7 @@ final class MasterViewController: UIViewController {
 
     // MARK: - Init
 
-    init(presenter:IMasterPresenter) {
+    init(presenter: IMasterPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

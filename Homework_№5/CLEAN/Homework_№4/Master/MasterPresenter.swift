@@ -8,10 +8,8 @@
 import Foundation
 
 protocol IMasterPresenter: class {
-    var ui: IMasterView? { get set }
-
-    func viewDidLoad(view:IMasterView)
-    func selectCellAt(index:Int)
+    func viewDidLoad(view: IMasterView)
+    func selectCellAt(index: Int)
 }
 
 final class MasterPresenter {
@@ -21,7 +19,7 @@ final class MasterPresenter {
     private var interactor: IMasterInteractor
     private var router: IMasterRouter
 
-    init(interactor:IMasterInteractor, router: IMasterRouter) {
+    init(interactor: IMasterInteractor, router: IMasterRouter) {
         self.interactor = interactor
         self.router = router
     }
@@ -31,7 +29,7 @@ final class MasterPresenter {
 
 extension MasterPresenter: IMasterPresenter {
 
-    func viewDidLoad(view:IMasterView) {
+    func viewDidLoad(view: IMasterView) {
         print("MasterPresenter получил уведомление, что MasterViewController загрузился.")
         self.interactor.presenter = self
         self.ui = view
@@ -41,9 +39,9 @@ extension MasterPresenter: IMasterPresenter {
         }
     }
 
-    func selectCellAt(index:Int) {
+    func selectCellAt(index: Int) {
         self.interactor.retrieveDataModel(at: index)
-        self.ui?.deselectRowAt(row: index)
+        self.ui?.deselectRowAt(indexPath: IndexPath(row: index, section: 0))
     }
 }
 
@@ -57,7 +55,8 @@ extension MasterPresenter: IMasterInteractorOutput {
 
     func getOneDataModel(_ dataModel: DataModel) {
         guard let ui = self.ui else {
-            fatalError("Somethingn is wrong")
+            assertionFailure("Somethingn is wrong")
+            return
         }
         self.router.showDetailViewController(on: ui, with: dataModel)
     }

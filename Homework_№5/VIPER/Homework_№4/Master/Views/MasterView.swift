@@ -9,10 +9,10 @@ import UIKit
 
 
 protocol IMasterView: class {
-    var didSelectRowAt:((Int) -> Void)? { get set }
+    var didSelectRowAt: ((Int) -> Void)? { get set }
     
     func setupDataModel(dataModel:[DataModel])
-    func deselectRowAt(row: Int)
+    func deselectRowAt(indexPath: IndexPath)
 }
 
 final class MasterView: UIView {
@@ -71,11 +71,11 @@ extension MasterView {
 // MARK: - MasterViewPresenter, Получение ответа от MasterPresenter
 
 extension MasterView: IMasterView {
-    func deselectRowAt(row: Int) {
-        self.tableView.deselectRow(at: IndexPath(row: row, section: 0), animated: true)
+    func deselectRowAt(indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func setupDataModel(dataModel:[DataModel]) {
+    func setupDataModel(dataModel: [DataModel]) {
         self.tableViewDataSource.dataArray = dataModel
         self.tableView.reloadData()
     }

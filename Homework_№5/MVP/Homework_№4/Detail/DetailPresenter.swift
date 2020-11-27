@@ -9,8 +9,6 @@
 import UIKit
 
 protocol IDetailPresenteeer: class {
-    var ui: IDetailView? { get set }
-    
     func viewDidLoad(view: IDetailView?)
 }
 
@@ -22,7 +20,7 @@ final class DetailPresenter: IDetailPresenteeer {
 
     // MARK: - Init
 
-    init(dataModel:DataModel?) {
+    init(dataModel: DataModel?) {
         self.dataModel = dataModel
     }
 

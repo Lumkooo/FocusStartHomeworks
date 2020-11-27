@@ -8,8 +8,6 @@
 import UIKit
 
 protocol IMasterPresenter: class {
-    var ui: IMasterView? { get set }
-
     func viewDidLoad(view:IMasterView)
 }
 
@@ -39,9 +37,9 @@ private extension MasterPresenter {
         self.ui?.setupDataModel(dataModel: dataModel)
     }
 
-    func selectCellAt(index:Int) {
+    func selectCellAt(index: Int) {
         self.retrieveDataModel(at: index)
-        self.ui?.deselectRowAt(row: index)
+        self.ui?.deselectRowAt(indexPath: IndexPath(row: index, section: 0))
     }
 
     func retrieveDataModel(at index: Int) {
@@ -56,6 +54,10 @@ private extension MasterPresenter {
     }
 
     func showDetailViewController(on view: IMasterView, with dataModel: DataModel) {
-        MasterAssembly.showDetailViewController(on: view, with: dataModel)
+        let detailViewController = DetailAssembly.createDetailController(with: dataModel)
+        guard let viewController = (view  as? MasterView)?.findViewController() else {
+            fatalError("Произошла ошибка!")
+        }
+        viewController.splitViewController?.showDetailViewController(detailViewController, sender: nil)
     }
 }

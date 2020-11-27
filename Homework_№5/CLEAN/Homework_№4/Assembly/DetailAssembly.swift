@@ -8,7 +8,7 @@
 import UIKit
 
 enum DetailAssembly {
-    static func createModule(with dataModel: DataModel) -> UIViewController {
+    static func createDetailController(with dataModel: DataModel) -> UIViewController {
         print("DetailRouter создает DetailViewController.")
 
         let useCaseOne = DetailUseCaseOne(dataModel: dataModel)
@@ -17,6 +17,14 @@ enum DetailAssembly {
         let presenter = DetailPresenter(interactor: interactor, router: router)
         let viewController = DetailViewController(presenter: presenter)
 
+        return viewController
+    }
+
+    static func createDetailController() -> UIViewController {
+        let interactor = DetailInteractor()
+        let router = DetailRouter()
+        let presenter = DetailPresenter(interactor: interactor, router: router)
+        let viewController = DetailViewController(presenter: presenter)
         return viewController
     }
 }

@@ -21,9 +21,12 @@ extension CustomTableViewDataSource: UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseIdentifier,
-                                                       for: indexPath) as? CustomTableViewCell
-        else { assertionFailure(); return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CustomTableViewCell.reuseIdentifier,
+                for: indexPath) as? CustomTableViewCell
+        else {
+            assertionFailure(); return UITableViewCell()
+        }
 
         if indexPath.row < self.dataArray.count {
 

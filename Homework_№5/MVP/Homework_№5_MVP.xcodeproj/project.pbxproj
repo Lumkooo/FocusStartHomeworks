@@ -26,6 +26,7 @@
 		CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */; };
 		CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */; };
 		CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98CB2560E97A00CF7518 /* DetailView.swift */; };
+		CE87A2BB2570B3D900139797 /* SplitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87A2BA2570B3D900139797 /* SplitAssembly.swift */; };
 		CE888D2D256F933B00BF511B /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE888D2C256F933A00BF511B /* DetailAssembly.swift */; };
 		CEE662F2255E68CB00A51F7F /* dataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE662F1255E68CB00A51F7F /* dataModel.json */; };
 		CEE662F7255E731C00A51F7F /* MasterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE662F6255E731C00A51F7F /* MasterPresenter.swift */; };
@@ -53,6 +54,7 @@
 		CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTappedDelegate.swift; sourceTree = "<group>"; };
 		CE7F98CB2560E97A00CF7518 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CE87A2BA2570B3D900139797 /* SplitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAssembly.swift; sourceTree = "<group>"; };
 		CE888D2C256F933A00BF511B /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
 		CEE662F1255E68CB00A51F7F /* dataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataModel.json; sourceTree = "<group>"; };
 		CEE662F6255E731C00A51F7F /* MasterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPresenter.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		CE36DC112552718B00F62B67 /* Homework_№4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE87A2B92570B3C400139797 /* Assembly */,
 				CE0ED736255EB94600F8B878 /* App */,
 				CEFBF232255E66CF00319E69 /* Master */,
 				CEFBF233255E66DC00319E69 /* Detail */,
@@ -147,13 +150,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CE87A2B92570B3C400139797 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CE57135B25610270008E51AF /* MasterAssembly.swift */,
+				CE888D2C256F933A00BF511B /* DetailAssembly.swift */,
+				CE87A2BA2570B3D900139797 /* SplitAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		CEFBF232255E66CF00319E69 /* Master */ = {
 			isa = PBXGroup;
 			children = (
 				CE7F98B62560DCE300CF7518 /* Views */,
 				CE36DC3525527E2A00F62B67 /* MasterViewController.swift */,
 				CEE662F6255E731C00A51F7F /* MasterPresenter.swift */,
-				CE57135B25610270008E51AF /* MasterAssembly.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -164,7 +176,6 @@
 				CE7F98CE2560E98400CF7518 /* Views */,
 				CE36DC162552718B00F62B67 /* DetailViewController.swift */,
 				CE0ED725255E973500F8B878 /* DetailPresenter.swift */,
-				CE888D2C256F933A00BF511B /* DetailAssembly.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -263,6 +274,7 @@
 				CE36DC4D2552A60500F62B67 /* CustomTableViewCell.swift in Sources */,
 				CE0ED72E255EAA2B00F8B878 /* ImagesModel.swift in Sources */,
 				CE36DC172552718B00F62B67 /* DetailViewController.swift in Sources */,
+				CE87A2BB2570B3D900139797 /* SplitAssembly.swift in Sources */,
 				CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */,
 				CE1B010225550E3600D0CA8E /* DataModel.swift in Sources */,
 				CE36DC132552718B00F62B67 /* AppDelegate.swift in Sources */,

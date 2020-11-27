@@ -31,6 +31,6 @@ final class MasterViewController: UIViewController {
         super.viewDidLoad()
         self.view = masterView
         self.presenter.viewDidLoad(view: self.masterView)
-        self.navigationItem.title = "ДЗ 5"
+        self.navigationItem.title = "ДЗ 5, MVP"
     }
 }

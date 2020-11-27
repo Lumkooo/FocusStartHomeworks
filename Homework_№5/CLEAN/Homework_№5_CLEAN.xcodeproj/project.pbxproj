@@ -29,6 +29,7 @@
 		CE7F98C52560E7CA00CF7518 /* MasterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */; };
 		CE7F98C82560E7D500CF7518 /* TableViewCellTappedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */; };
 		CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F98CB2560E97A00CF7518 /* DetailView.swift */; };
+		CE87A2B62570B15900139797 /* SplitAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87A2B52570B15900139797 /* SplitAssembly.swift */; };
 		CE888D26256F8E2E00BF511B /* MasterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE888D25256F8E2E00BF511B /* MasterAssembly.swift */; };
 		CE888D2A256F8ED300BF511B /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE888D29256F8ED300BF511B /* DetailAssembly.swift */; };
 		CEE662F2255E68CB00A51F7F /* dataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE662F1255E68CB00A51F7F /* dataModel.json */; };
@@ -62,6 +63,7 @@
 		CE7F98C42560E7CA00CF7518 /* MasterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		CE7F98C72560E7D500CF7518 /* TableViewCellTappedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTappedDelegate.swift; sourceTree = "<group>"; };
 		CE7F98CB2560E97A00CF7518 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CE87A2B52570B15900139797 /* SplitAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitAssembly.swift; sourceTree = "<group>"; };
 		CE888D25256F8E2E00BF511B /* MasterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterAssembly.swift; sourceTree = "<group>"; };
 		CE888D29256F8ED300BF511B /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
 		CEE662F1255E68CB00A51F7F /* dataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataModel.json; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		CE36DC112552718B00F62B67 /* Homework_№4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE87A2B42570B14700139797 /* Assembly */,
 				CE0ED736255EB94600F8B878 /* App */,
 				CEFBF232255E66CF00319E69 /* Master */,
 				CEFBF233255E66DC00319E69 /* Detail */,
@@ -175,6 +178,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CE87A2B42570B14700139797 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CE888D25256F8E2E00BF511B /* MasterAssembly.swift */,
+				CE888D29256F8ED300BF511B /* DetailAssembly.swift */,
+				CE87A2B52570B15900139797 /* SplitAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		CEFBF232255E66CF00319E69 /* Master */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +197,6 @@
 				CEE662F6255E731C00A51F7F /* MasterPresenter.swift */,
 				CEE662FA255E732D00A51F7F /* MasterInteractor.swift */,
 				CEE662FD255E733400A51F7F /* MasterRouter.swift */,
-				CE888D25256F8E2E00BF511B /* MasterAssembly.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -198,7 +210,6 @@
 				CE0ED71C255E970A00F8B878 /* DetailRouter.swift */,
 				CE0ED71F255E972400F8B878 /* DetailInteractor.swift */,
 				CE0ED725255E973500F8B878 /* DetailPresenter.swift */,
-				CE888D29256F8ED300BF511B /* DetailAssembly.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 				CE0ED72E255EAA2B00F8B878 /* ImagesModel.swift in Sources */,
 				CEE662FB255E732D00A51F7F /* MasterInteractor.swift in Sources */,
 				CE888D2A256F8ED300BF511B /* DetailAssembly.swift in Sources */,
+				CE87A2B62570B15900139797 /* SplitAssembly.swift in Sources */,
 				CE36DC172552718B00F62B67 /* DetailViewController.swift in Sources */,
 				CE7F98CC2560E97A00CF7518 /* DetailView.swift in Sources */,
 				CE1B010225550E3600D0CA8E /* DataModel.swift in Sources */,

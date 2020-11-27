@@ -16,7 +16,7 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Init
 
-    init(presenter:IDetailPresenter) {
+    init(presenter: IDetailPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

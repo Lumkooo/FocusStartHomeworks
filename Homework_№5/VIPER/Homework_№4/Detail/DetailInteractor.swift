@@ -33,7 +33,7 @@ final class DetailInteractor {
         self.dataModel = DataModel.getFirstDataModel()
     }
 
-    init(dataModel:DataModel) {
+    init(dataModel: DataModel) {
         self.dataModel = dataModel
     }
 }

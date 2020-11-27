@@ -12,7 +12,7 @@ final class CustomTableViewDelegate: NSObject {
     // MARK: - Constants
 
     private enum Constants {
-        static let tableViewEstimatedHeight:CGFloat = 44
+        static let tableViewEstimatedHeight: CGFloat = 44
     }
 
     weak var delegate: MasterViewControllerDelegate?
