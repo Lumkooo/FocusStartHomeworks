@@ -8,7 +8,11 @@
 		<dict>
 			<key>orderHint</key>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<integer>8</integer>
+=======
+			<integer>1</integer>
+>>>>>>> feature/homework-7
 =======
 			<integer>2</integer>
 >>>>>>> develop

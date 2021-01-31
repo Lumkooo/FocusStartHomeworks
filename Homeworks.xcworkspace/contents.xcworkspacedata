@@ -3,6 +3,7 @@
    version = "1.0">
    <FileRef
 <<<<<<< HEAD
+<<<<<<< HEAD
       location = "group:Homework_&#x2116;6.xcodeproj">
    </FileRef>
    <FileRef
@@ -16,6 +17,9 @@
    </FileRef>
    <FileRef
       location = "group:Homework_&#x2116;5/MVC/Homework_&#x2116;5_MVC.xcodeproj">
+=======
+      location = "group:Homework_&#x2116;7/Homework_&#x2116;7.xcodeproj">
+>>>>>>> feature/homework-7
 =======
       location = "group:Homework_&#x2116;8/Homework_&#x2116;8.xcodeproj">
 >>>>>>> develop
