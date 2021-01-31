@@ -1,0 +1,37 @@
+[
+    {
+        "heading": "Заголовок1",
+        "text": "Текст1",
+        "time": "16:27",
+        "firstImageName": "firstImage",
+        "secondImageName": "secondImage"
+    },
+    {
+        "heading": "Заголовок2\nЗаголовок2",
+        "text": "Текст2",
+        "time": "16:28",
+        "firstImageName": "thirdImage",
+        "secondImageName": "secondImage"
+    },
+    {
+        "heading": "Заголовок3",
+        "text": "Больше текста, и времени нет 12Pro Max и еще =)",
+        "time": "",
+        "firstImageName": "firstImage",
+        "secondImageName": "fourthImage"
+    },
+    {
+        "heading": "Заголовок4",
+        "text": "Больше текста, и времени нет 12Pro Max и еще =)\nБольше текста, и времени нет 12Pro Max и еще =)",
+        "time": "16:30",
+        "firstImageName": "fifthImage",
+        "secondImageName": "sixthImage"
+    },
+    {
+        "heading": "Заголовок5",
+        "text": "",
+        "time": "",
+        "firstImageName": "firstImage",
+        "secondImageName": "fifthImage"
+    }
+]
