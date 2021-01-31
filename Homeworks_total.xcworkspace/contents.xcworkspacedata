@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Homework &#x2116;1.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;2.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;3.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;4.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;5/MVC/Homework_&#x2116;5_MVC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;5/VIPER/Homework_&#x2116;5_VIPER.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;5/CLEAN/Homework_&#x2116;5_CLEAN.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;5/MVP/Homework_&#x2116;5_MVP.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;6.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;7/Homework_&#x2116;7.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Homework_&#x2116;8/Homework_&#x2116;8.xcodeproj">
+   </FileRef>
+</Workspace>

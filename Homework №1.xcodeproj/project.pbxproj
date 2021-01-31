@@ -22,6 +22,16 @@
 		CED8435425592E87005730E8 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8435325592E87005730E8 /* Formatter.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CEFB785E25C67FD7000FD439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEFB785925C67FD7000FD439 /* Homework_№2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE92D1902542A75E009EE7B1;
+			remoteInfo = "Homework_№2";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CE066BE62538A26500CF23F0 /* Homework №1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework №1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE066BE92538A26500CF23F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +48,7 @@
 		CE3B68FB2538B02000249026 /* CarBodysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBodysTableViewController.swift; sourceTree = "<group>"; };
 		CE3B68FE2538B6EC00249026 /* SaveCarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCarDelegate.swift; sourceTree = "<group>"; };
 		CED8435325592E87005730E8 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		CEFB785925C67FD7000FD439 /* Homework_№2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Homework_№2.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 		CE066BDD2538A26500CF23F0 = {
 			isa = PBXGroup;
 			children = (
+				CEFB785925C67FD7000FD439 /* Homework_№2.xcodeproj */,
 				CE066BE82538A26500CF23F0 /* Homework №1 */,
 				CE066BE72538A26500CF23F0 /* Products */,
 			);
@@ -94,6 +106,14 @@
 				CED8435325592E87005730E8 /* Formatter.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CEFB785A25C67FD7000FD439 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEFB785F25C67FD7000FD439 /* Homework_№2.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,12 +161,28 @@
 			mainGroup = CE066BDD2538A26500CF23F0;
 			productRefGroup = CE066BE72538A26500CF23F0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CEFB785A25C67FD7000FD439 /* Products */;
+					ProjectRef = CEFB785925C67FD7000FD439 /* Homework_№2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CE066BE52538A26500CF23F0 /* Homework №1 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CEFB785F25C67FD7000FD439 /* Homework_№2.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Homework_№2.app";
+			remoteRef = CEFB785E25C67FD7000FD439 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CE066BE42538A26500CF23F0 /* Resources */ = {
