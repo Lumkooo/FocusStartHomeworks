@@ -9,9 +9,7 @@
 3. Вывод списка автомобилей с использованием фильтра по типу кузова
 автомобиля
 
-![Alt text](ScreenShots/Homework_1.3.png)
-
-![Alt text](ScreenShots/Homework_1.2.png)
+![Alt text](ScreenShots/Homework_1.3.png)![Alt text](ScreenShots/Homework_1.2.png)
 
 ## Homework_№2:
 ###### Задание:
