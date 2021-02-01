@@ -8,7 +8,7 @@
 2. Вывод списка добавленных автомобилей
 3. Вывод списка автомобилей с использованием фильтра по типу кузова
 автомобиля
-![Alt text](ScreenShots/Homework_1.1.png?raw=true "Title")
+![Alt text](ScreenShots/Homework_1.1.png)
 ## Homework_№2:
 ###### Задание:
 
